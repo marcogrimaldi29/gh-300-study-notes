@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy &amp; Safeguards | GH-300 Study Notes</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="../assets/images/teal-sunset-no-bg.png">
+  <link rel="apple-touch-icon" href="../assets/images/teal-sunset-no-bg.png">
+</head>
+<body>
+
+  <div class="bg-animation"><div class="cloud"></div><div class="cloud"></div><div class="cloud"></div></div>
+  <div class="code-rain"></div>
+
+  <header class="site-header">
+    <a href="../" class="header-logo">
+      <img src="../assets/images/teal-sunset-no-bg.png" alt="GH-300 Study Notes logo">
+      <span class="logo-text">GH-300 <span class="muted">Study Notes</span></span>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+    <nav class="header-nav">
+      <a class="star-btn" href="https://github.com/marcogrimaldi29/gh-300-study-notes" target="_blank" rel="noopener" title="Star this repo on GitHub">
+        <span class="star-emoji">&#11088;</span>
+        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
+        <span class="star-label">Star</span>
+      </a>
+    </nav>
+  </header>
+
+  <div class="sidebar-overlay"></div>
+
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Overview</div>
+      <a href="../" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Z"/></svg>Home</a>
+      <a href="../exam-tips/" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75ZM5.75 12a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5Z"/></svg>Exam Tips &amp; Caveats</a>
+      <a href="https://learn.microsoft.com/en-us/credentials/certifications/github-copilot/" class="sidebar-link" target="_blank" rel="noopener"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg>Official Certification</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Skills Measured</div>
+      <a href="../responsible-ai/" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M9.585.52a2.678 2.678 0 0 0-3.17 0l-.928.68a1.178 1.178 0 0 1-.518.215L3.83 1.59a2.678 2.678 0 0 0-2.24 2.24l-.175 1.14a1.178 1.178 0 0 1-.215.518l-.68.928a2.678 2.678 0 0 0 0 3.17l.68.928c.113.153.186.33.215.518l.175 1.138a2.678 2.678 0 0 0 2.24 2.24l1.138.175c.187.029.365.102.518.215l.928.68a2.678 2.678 0 0 0 3.17 0l.928-.68a1.17 1.17 0 0 1 .518-.215l1.138-.175a2.678 2.678 0 0 0 2.241-2.24l.175-1.138c.029-.187.102-.365.215-.518l.68-.928a2.678 2.678 0 0 0 0-3.17l-.68-.928a1.179 1.179 0 0 1-.215-.518L14.41 3.83a2.678 2.678 0 0 0-2.24-2.24l-1.138-.175a1.179 1.179 0 0 1-.518-.215ZM7.303 1.728l.928-.68a1.178 1.178 0 0 1 1.395 0l.928.68c.348.256.752.423 1.18.489l1.136.174c.51.078.909.478.987.987l.174 1.137c.066.427.233.831.489 1.18l.68.927c.353.483.353 1.135 0 1.617l-.68.928a2.678 2.678 0 0 0-.489 1.18l-.174 1.136a1.178 1.178 0 0 1-.987.987l-1.137.174a2.678 2.678 0 0 0-1.18.489l-.927.68a1.178 1.178 0 0 1-1.617 0l-.928-.68a2.678 2.678 0 0 0-1.18-.489l-1.136-.174a1.178 1.178 0 0 1-.987-.987l-.174-1.137a2.678 2.678 0 0 0-.489-1.18l-.68-.927a1.178 1.178 0 0 1 0-1.617l.68-.928c.256-.349.423-.753.489-1.18l.174-1.136c.078-.51.478-.909.987-.987l1.137-.174a2.678 2.678 0 0 0 1.18-.489ZM11.28 6.78a.75.75 0 0 0-1.06-1.06L7 8.94 5.78 7.72a.75.75 0 0 0-1.06 1.06l1.75 1.75a.75.75 0 0 0 1.06 0l3.75-3.75Z"/></svg>Responsible AI<span class="badge">15-20%</span></a>
+      <a href="../copilot-features/" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25V2.75C0 1.784.784 1 1.75 1Zm12.5 1.5H1.75a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5Z"/></svg>Copilot in IDE &amp; CLI<span class="badge">25-30%</span></a>
+      <a href="../copilot-capabilities/" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M0 2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25ZM1.75 2.5a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25Zm7.47 3.97-3.72 3.72a.75.75 0 1 0 1.06 1.06l3.72-3.72a.75.75 0 0 0-1.06-1.06ZM6.28 5.22a.75.75 0 0 0-1.06 0L3.47 6.97a.75.75 0 0 0 0 1.06l1.75 1.75a.75.75 0 0 0 1.06-1.06L5.06 7.5l1.22-1.22a.75.75 0 0 0 0-1.06Zm4.5 1.75a.75.75 0 0 0 0 1.06l1.22 1.22-1.22 1.22a.75.75 0 1 0 1.06 1.06l1.75-1.75a.75.75 0 0 0 0-1.06l-1.75-1.75a.75.75 0 0 0-1.06 0Z"/></svg>Capabilities &amp; Policies<span class="badge">25-30%</span></a>
+      <a href="../data-architecture/" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h8.5C13.216 0 14 .784 14 1.75v12.5A1.75 1.75 0 0 1 12.25 16h-8.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25ZM4.75 4a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5ZM4 7.75A.75.75 0 0 1 4.75 7h6.5a.75.75 0 0 1 0 1.5h-6.5A.75.75 0 0 1 4 7.75ZM4.75 10a.75.75 0 0 0 0 1.5h3.5a.75.75 0 0 0 0-1.5h-3.5Z"/></svg>Data &amp; Architecture<span class="badge">10-15%</span></a>
+      <a href="../prompt-engineering/" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M0 2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25ZM1.75 2.5a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25ZM7 6.75A.75.75 0 0 1 7.75 6h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 7 6.75ZM3.25 2a.75.75 0 0 1 .75.75v2.5h2.5a.75.75 0 0 1 0 1.5H4v2.5a.75.75 0 0 1-1.5 0V2.75A.75.75 0 0 1 3.25 2Z"/></svg>Prompt Engineering<span class="badge">10-15%</span></a>
+      <a href="../developer-productivity/" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.25a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"/></svg>Developer Productivity<span class="badge">10-15%</span></a>
+      <a href="../privacy-safeguards/" class="sidebar-link active"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M7.467.133a1.748 1.748 0 0 1 1.066 0l5.25 1.68A1.75 1.75 0 0 1 15 3.48V7c0 1.566-.32 3.182-1.303 4.682-.983 1.498-2.585 2.813-5.032 3.855a1.697 1.697 0 0 1-1.33 0c-2.447-1.042-4.049-2.357-5.032-3.855C1.32 10.182 1 8.566 1 7V3.48a1.75 1.75 0 0 1 1.217-1.667Zm.61 1.429a.25.25 0 0 0-.153 0l-5.25 1.68a.25.25 0 0 0-.174.238V7c0 1.358.275 2.666 1.057 3.86.784 1.194 2.121 2.34 4.366 3.297a.196.196 0 0 0 .154 0c2.245-.956 3.582-2.104 4.366-3.298C13.225 9.666 13.5 8.36 13.5 7V3.48a.251.251 0 0 0-.174-.237l-5.25-1.68ZM8.75 4.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 1.5 0ZM9 10.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>Privacy &amp; Safeguards<span class="badge">10-15%</span></a>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="breadcrumb">
+      <a href="../">Home</a>
+      <span class="sep">/</span>
+      <span>Configure Privacy, Content Exclusions &amp; Safeguards</span>
+    </div>
+
+    <h1>Configure Privacy, Content Exclusions &amp; Safeguards</h1>
+    <p class="lead">This skill area accounts for <strong>10&ndash;15%</strong> of the exam. It covers content exclusion configuration, output ownership, duplication detection, security warnings, and troubleshooting suggestion issues.</p>
+
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong> These are personal study notes. Always verify against the <a href="https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-300" target="_blank" rel="noopener">official study guide</a>.
+    </div>
+
+    <nav class="page-toc">
+      <h4>On This Page</h4>
+      <ul>
+        <li><a href="#privacy-exclusions">Manage Privacy Settings &amp; Exclusions</a>
+          <ul>
+            <li><a href="#content-exclusions">Content Exclusions &amp; Editor Settings</a></li>
+            <li><a href="#output-ownership">Ownership &amp; Limitations of Outputs</a></li>
+          </ul>
+        </li>
+        <li><a href="#safeguards-troubleshoot">Apply Safeguards &amp; Troubleshoot</a>
+          <ul>
+            <li><a href="#duplication-detection">Duplication Detection &amp; Security Warnings</a></li>
+            <li><a href="#troubleshooting">Troubleshooting Suggestions &amp; Exclusions</a></li>
+          </ul>
+        </li>
+        <li><a href="#resources">Study Resources</a></li>
+      </ul>
+    </nav>
+
+    <!-- Privacy & Exclusions -->
+    <h2 id="privacy-exclusions">Manage Privacy Settings &amp; Exclusions</h2>
+
+    <h3 id="content-exclusions">Content Exclusions &amp; Editor Settings</h3>
+    <p>Content exclusions are a key admin control on Business/Enterprise plans. Reference: <a href="https://docs.github.com/en/copilot/managing-copilot/configuring-and-auditing-content-exclusion/excluding-content-from-github-copilot" target="_blank" rel="noopener">Excluding content from GitHub Copilot</a>.</p>
+
+    <div class="skill-section">
+      <h4>Configuration Scopes</h4>
+      <table>
+        <thead><tr><th>Level</th><th>Location in GitHub</th><th>Scope of Effect</th></tr></thead>
+        <tbody>
+          <tr><td>Repository</td><td>Repo Settings → Copilot → Content exclusion</td><td>That repository only</td></tr>
+          <tr><td>Organization</td><td>Org Settings → Copilot → Content exclusion</td><td>All users with seats from that org</td></tr>
+          <tr><td>Enterprise</td><td>Enterprise AI controls → Copilot → Content exclusion</td><td>All orgs and users in the enterprise</td></tr>
+        </tbody>
+      </table>
+
+      <h4 style="margin-top:16px">What Gets Excluded</h4>
+      <p>When a file matches an exclusion rule, Copilot:</p>
+      <ul>
+        <li>Does <strong>not</strong> provide inline code completion suggestions when editing that file</li>
+        <li>Does <strong>not</strong> use that file's content as context in Copilot Chat (excluded files won't appear as references)</li>
+        <li>Does <strong>not</strong> send the excluded content to Copilot's servers</li>
+      </ul>
+
+      <h4 style="margin-top:16px">Pattern Syntax — fnmatch (case-insensitive)</h4>
+      <p>Exclusion paths use <strong>fnmatch pattern matching notation</strong>:</p>
+      <table>
+        <thead><tr><th>Pattern</th><th>Matches</th></tr></thead>
+        <tbody>
+          <tr><td><code>*</code></td><td>Any string of characters (within one path segment)</td></tr>
+          <tr><td><code>?</code></td><td>Any single character</td></tr>
+          <tr><td><code>[abc]</code></td><td>Any one of the listed characters</td></tr>
+          <tr><td><code>[a-z]</code></td><td>Any character in the range</td></tr>
+          <tr><td><code>{server,session}*</code></td><td>Brace expansion: files starting with "server" or "session"</td></tr>
+          <tr><td><code>**/directory/**</code></td><td>Recursive match: any file under "directory" at any depth</td></tr>
+        </tbody>
+      </table>
+
+      <h4 style="margin-top:16px">Example Configuration Syntax</h4>
+      <p><em>Repository-level</em> (one path per line):</p>
+      <pre><code># Exclude secrets and config files
+secrets.json
+secret*
+*.cfg
+**/.env
+/scripts/**</code></pre>
+      <p><em>Organization/Enterprise-level</em> (YAML, keyed by repo):</p>
+      <pre><code>"*":
+  - "**/.env"
+
+my-repo:
+  - "/src/internal/kernel.rs"
+  - "secrets.json"
+
+https://github.com/org/repo.git:
+  - "/PATH/TO/FILE"</code></pre>
+    </div>
+
+    <div class="callout danger">
+      <div class="callout-title">&#9888; Critical Exam Fact — CLI &amp; Agent Mode Exception</div>
+      <p><strong>"GitHub Copilot CLI, Copilot cloud agent, and Agent mode in Copilot Chat in IDEs, do not support content exclusion."</strong> — This is a major caveat that is very likely to be tested. Content exclusions only apply to IDE inline suggestions and Chat (non-agent mode).</p>
+    </div>
+
+    <div class="skill-section">
+      <h4>Propagation &amp; Verification</h4>
+      <ul>
+        <li>Changes to exclusion rules take <strong>up to 30 minutes</strong> to propagate to IDE clients</li>
+        <li>To force refresh in <strong>VS Code</strong>: Command Palette → <em>Developer: Reload Window</em></li>
+        <li>To force refresh in <strong>JetBrains / Visual Studio</strong>: close and reopen the IDE</li>
+        <li>In <strong>Vim/Neovim</strong>: exclusions are fetched automatically when a file is opened</li>
+        <li><strong>Verification method</strong>: Open an excluded file → attempt an edit that normally triggers suggestions → no suggestions should appear</li>
+        <li>For Chat verification: open the excluded file as context → prompt "explain this file" → the file should <em>not</em> appear in the references list</li>
+      </ul>
+
+      <h4 style="margin-top:16px">API Management</h4>
+      <ul>
+        <li>Org and enterprise owners can manage exclusions programmatically via the <a href="https://docs.github.com/rest/copilot" target="_blank" rel="noopener">Copilot REST API</a></li>
+        <li>Useful for automating exclusion rule deployment at scale</li>
+      </ul>
+    </div>
+
+    <div class="skill-section">
+      <h4>Editor-Level User Settings</h4>
+      <ul>
+        <li>VS Code: <code>github.copilot.enable</code> setting — can be set per language (e.g., disable for <code>*.md</code>)</li>
+        <li>JetBrains: Toggle in Copilot settings with language-specific controls</li>
+        <li><strong>Telemetry:</strong> Individual/Pro users can opt in/out of sharing usage data</li>
+        <li><strong>Training data:</strong> Free/Pro/Pro+/Max users can opt in/out of having their data used to train Copilot models; Business/Enterprise: data is <em>never</em> used for training</li>
+      </ul>
+    </div>
+
+    <div class="callout warning">
+      <div class="callout-title">&#9888; Exam Tip — Scope &amp; Plan</div>
+      <p>Content exclusions are <strong>Business and Enterprise plans only</strong> — not available on Free, Pro, Pro+, or <strong>Max</strong> (Max is still an individual plan, no matter how expensive — it gets no org-admin controls). Also know the three configuration levels (repo, org, enterprise) and their relative scope.</p>
+    </div>
+
+    <h3 id="output-ownership">Ownership &amp; Limitations of Outputs</h3>
+    <div class="skill-section">
+      <h4>Who Owns AI-Generated Code?</h4>
+      <ul>
+        <li>GitHub does <strong>not</strong> claim ownership over Copilot-generated suggestions</li>
+        <li>Responsibility for the code lies with the <strong>developer</strong> who accepts and commits it</li>
+        <li>Suggestions may resemble existing open-source code — licensing must be considered</li>
+        <li>Enable <strong>duplication detection</strong> to identify suggestions matching public code</li>
+        <li>IP indemnity coverage varies by plan — consult your Copilot agreement</li>
+      </ul>
+
+      <h4 style="margin-top:16px">Limitations to Remember</h4>
+      <ul>
+        <li>No guarantee that suggestions are original, unique, or free of vulnerabilities</li>
+        <li>Suggestions are not legal advice — review for compliance independently</li>
+        <li>Organizations should establish written AI usage policies for developers</li>
+        <li>Copilot cannot guarantee correctness — only the developer's validation can</li>
+      </ul>
+    </div>
+
+    <!-- Safeguards & Troubleshoot -->
+    <h2 id="safeguards-troubleshoot">Apply Safeguards &amp; Troubleshoot</h2>
+
+    <h3 id="duplication-detection">Duplication Detection &amp; Security Warnings</h3>
+    <div class="skill-section">
+      <h4>"Suggestions Matching Public Code" (Duplication Detection / Code Referencing)</h4>
+      <p>The exam guide names this policy <strong>"suggestions matching public code filtering"</strong> — Copilot compares a suggestion plus ~150 characters of surrounding code against public code on GitHub, and can block or allow matches:</p>
+      <table>
+        <thead><tr><th>Setting</th><th>Behaviour</th><th>Use Case</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Block</strong></td><td>Suppress suggestions that match (or near-match) public code; user sees no suggestion</td><td>Strict IP compliance, open-source projects</td></tr>
+          <tr><td><strong>Allow</strong></td><td>Show matching suggestions and let the user view the matched repositories ("code referencing")</td><td>Maximum productivity, less IP-sensitive projects</td></tr>
+        </tbody>
+      </table>
+      <ul style="margin-top:12px">
+        <li>Personal accounts configure this individually — <strong>unless</strong> they belong to an org/enterprise, in which case the setting is inherited and the personal option is unavailable</li>
+        <li>Org/enterprise admins configure it under <em>Settings &gt; Copilot &gt; Policies</em></li>
+        <li>When blocked, the suggestion is filtered <em>before</em> reaching the user</li>
+        <li><strong>Exception:</strong> Copilot coding agent does not support Block mode for this policy — matches are highlighted in the session logs instead of being suppressed</li>
+        <li>Note: if this policy is set to Block and no suggestions appear, that is expected behaviour — know this for troubleshooting questions</li>
+      </ul>
+
+      <h4 style="margin-top:16px">Security Warnings</h4>
+      <ul>
+        <li>Copilot includes safety filters to detect potentially <strong>insecure code patterns</strong></li>
+        <li>Suggestions with known vulnerability patterns may be flagged or suppressed</li>
+        <li>Complements — but does not replace — GitHub's dedicated security tools (Dependabot, Secret Scanning, Code Scanning / SAST)</li>
+        <li>Always run dedicated security tooling in addition to Copilot's built-in checks</li>
+      </ul>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-title">&#9432; Key Distinction: Duplication Detection vs. Content Exclusions</div>
+      <table>
+        <thead><tr><th></th><th>Content Exclusions</th><th>Duplication Detection</th></tr></thead>
+        <tbody>
+          <tr><td><strong>What it does</strong></td><td>Prevents Copilot from accessing specific files/repos</td><td>Checks if suggestions match publicly available code</td></tr>
+          <tr><td><strong>Direction</strong></td><td>Controls input (what Copilot can see)</td><td>Controls output (what Copilot can suggest)</td></tr>
+          <tr><td><strong>Plan required</strong></td><td>Business / Enterprise</td><td>All plans (configurable)</td></tr>
+          <tr><td><strong>Configured by</strong></td><td>Org/Enterprise admin</td><td>Individual (if unaffiliated) or Org/Enterprise admin (policy is inherited if affiliated)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 id="troubleshooting">Troubleshooting Suggestions &amp; Exclusions</h3>
+    <div class="skill-section">
+      <table>
+        <thead>
+          <tr><th>Symptom</th><th>Likely Cause</th><th>Resolution</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>No suggestions in any file</td>
+            <td>Extension disabled, no valid subscription, authentication error</td>
+            <td>Check extension toggle, verify account/subscription, re-authenticate</td>
+          </tr>
+          <tr>
+            <td>No suggestions in a specific file</td>
+            <td>File matches a content exclusion rule, or duplication detection is blocking</td>
+            <td>Check org/repo exclusion settings; check duplication detection policy</td>
+          </tr>
+          <tr>
+            <td>Low-quality or irrelevant suggestions</td>
+            <td>Insufficient context (few open files, vague prompt)</td>
+            <td>Open relevant files, write descriptive comments, use few-shot examples</td>
+          </tr>
+          <tr>
+            <td>Exclusions not taking effect</td>
+            <td>30-minute propagation delay, incorrect glob pattern, wrong scope level</td>
+            <td>Wait 30 min or force reload IDE; verify pattern syntax and config scope</td>
+          </tr>
+          <tr>
+            <td>Excluded file still referenced in Chat</td>
+            <td>Cache delay or stale IDE session</td>
+            <td>Reload IDE window; re-open the chat session</td>
+          </tr>
+          <tr>
+            <td>Chat rate limit reached</td>
+            <td>Premium request quota exhausted for the month</td>
+            <td>Wait for quota reset (monthly); upgrade plan or purchase additional requests</td>
+          </tr>
+          <tr>
+            <td>Agent/CLI ignoring exclusions</td>
+            <td>Content exclusions do not apply to CLI, cloud agent, or Agent Mode</td>
+            <td>This is by design — use alternative safeguards for agentic workflows</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Resources -->
+    <h2 id="resources">Study Resources</h2>
+    <ul class="resource-list">
+      <li>
+        <a href="https://docs.github.com/en/copilot/managing-copilot/configuring-and-auditing-content-exclusion/excluding-content-from-github-copilot" target="_blank" rel="noopener">Excluding Content from GitHub Copilot (GitHub Docs)</a>
+        <span class="resource-desc">Full guide: fnmatch patterns, scope levels, propagation time, verification steps, API management.</span>
+      </li>
+      <li>
+        <a href="https://github.com/trust-center" target="_blank" rel="noopener">GitHub Trust Center</a>
+        <span class="resource-desc">Data handling, privacy policies, and security information for Copilot.</span>
+      </li>
+      <li>
+        <a href="https://docs.github.com/en/copilot/about-github-copilot/plans-for-github-copilot" target="_blank" rel="noopener">Copilot Plans &amp; Features (GitHub Docs)</a>
+        <span class="resource-desc">Which privacy and safeguard features are available on each plan.</span>
+      </li>
+      <li>
+        <a href="https://ghcertified.com/en" target="_blank" rel="noopener">GH Certified — Practice Questions</a>
+        <span class="resource-desc">Community practice tests covering privacy, exclusion, and safeguard topics.</span>
+      </li>
+    </ul>
+
+    <div class="page-nav">
+      <a href="../developer-productivity/">
+        <span class="nav-label">&larr; Previous</span>
+        <span class="nav-title">Developer Productivity</span>
+      </a>
+      <a href="../exam-tips/" class="next">
+        <span class="nav-label">Next &rarr;</span>
+        <span class="nav-title">Exam Tips &amp; Caveats</span>
+      </a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col footer-col-author">
+        <div class="author-card">
+          <img src="../assets/images/marcogrimaldi29.jpg" alt="Marco Grimaldi">
+          <div>
+            <span class="maintainer-badge">Maintainer</span>
+            <div class="ac-name">Marco Grimaldi</div>
+            <div class="ac-role">Cloud Solution Architect</div>
+          </div>
+        </div>
+        <div class="author-links">
+          <a href="https://github.com/marcogrimaldi29" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a>
+          <a href="https://www.linkedin.com/in/marco-grimaldi29/" target="_blank" rel="noopener">in LinkedIn</a>
+          <a href="https://marcogrimaldi29.com/" target="_blank" rel="noopener"><img src="../assets/images/teal-sunset-no-bg.png" alt="" width="14" height="14"> Website</a>
+        </div>
+        <div class="star-cta">&#11088; Found these notes helpful? <strong>Star the repo on GitHub</strong> to support the project and help others find it.</div>
+      </div>
+      <div class="footer-col">
+        <h5>Skills Measured</h5>
+        <a href="../responsible-ai/">Responsible AI</a>
+        <a href="../copilot-features/">Copilot in IDE &amp; CLI</a>
+        <a href="../copilot-capabilities/">Capabilities &amp; Policies</a>
+        <a href="../data-architecture/">Data &amp; Architecture</a>
+        <a href="../prompt-engineering/">Prompt Engineering</a>
+        <a href="../developer-productivity/">Developer Productivity</a>
+        <a href="../privacy-safeguards/">Privacy &amp; Safeguards</a>
+      </div>
+      <div class="footer-col">
+        <h5>Official Resources</h5>
+        <a href="https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-300" target="_blank" rel="noopener">GH-300 Study Guide</a>
+        <a href="https://learn.microsoft.com/en-us/credentials/certifications/github-copilot/" target="_blank" rel="noopener">Certification Page</a>
+        <a href="https://learn.microsoft.com/en-us/training/courses/gh-300t00" target="_blank" rel="noopener">Course GH-300T00-A</a>
+        <a href="https://docs.github.com/en/copilot" target="_blank" rel="noopener">GitHub Copilot Docs</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Marco Grimaldi &middot; For study &amp; learning purposes only. Not affiliated with Microsoft or GitHub.</span>
+      <span>Always verify against the <a href="https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-300" target="_blank" rel="noopener">official study guide</a>.</span>
+    </div>
+  </footer>
+
+  <a href="../" class="home-fab" aria-label="Home" title="Home">&#127968;</a>
+  <button class="back-to-top" aria-label="Back to top">&#128285;</button>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
