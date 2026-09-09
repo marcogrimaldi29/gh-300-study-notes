@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capabilities &amp; Policies | GH-300 Study Notes</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="../assets/images/teal-sunset-no-bg.png">
+  <link rel="apple-touch-icon" href="../assets/images/teal-sunset-no-bg.png">
+</head>
+<body>
+
+  <div class="bg-animation"><div class="cloud"></div><div class="cloud"></div><div class="cloud"></div></div>
+  <div class="code-rain"></div>
+
+  <header class="site-header">
+    <a href="../" class="header-logo">
+      <img src="../assets/images/teal-sunset-no-bg.png" alt="GH-300 Study Notes logo">
+      <span class="logo-text">GH-300 <span class="muted">Study Notes</span></span>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+    <nav class="header-nav">
+      <a class="star-btn" href="https://github.com/marcogrimaldi29/gh-300-study-notes" target="_blank" rel="noopener" title="Star this repo on GitHub">
+        <span class="star-emoji">&#11088;</span>
+        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
+        <span class="star-label">Star</span>
+      </a>
+    </nav>
+  </header>
+
+  <div class="sidebar-overlay"></div>
+
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Overview</div>
+      <a href="../" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Z"/></svg>Home</a>
+      <a href="../exam-tips/" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75ZM5.75 12a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5Z"/></svg>Exam Tips &amp; Caveats</a>
+      <a href="https://learn.microsoft.com/en-us/credentials/certifications/github-copilot/" class="sidebar-link" target="_blank" rel="noopener"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg>Official Certification</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Skills Measured</div>
+      <a href="../responsible-ai/" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M9.585.52a2.678 2.678 0 0 0-3.17 0l-.928.68a1.178 1.178 0 0 1-.518.215L3.83 1.59a2.678 2.678 0 0 0-2.24 2.24l-.175 1.14a1.178 1.178 0 0 1-.215.518l-.68.928a2.678 2.678 0 0 0 0 3.17l.68.928c.113.153.186.33.215.518l.175 1.138a2.678 2.678 0 0 0 2.24 2.24l1.138.175c.187.029.365.102.518.215l.928.68a2.678 2.678 0 0 0 3.17 0l.928-.68a1.17 1.17 0 0 1 .518-.215l1.138-.175a2.678 2.678 0 0 0 2.241-2.24l.175-1.138c.029-.187.102-.365.215-.518l.68-.928a2.678 2.678 0 0 0 0-3.17l-.68-.928a1.179 1.179 0 0 1-.215-.518L14.41 3.83a2.678 2.678 0 0 0-2.24-2.24l-1.138-.175a1.179 1.179 0 0 1-.518-.215ZM7.303 1.728l.928-.68a1.178 1.178 0 0 1 1.395 0l.928.68c.348.256.752.423 1.18.489l1.136.174c.51.078.909.478.987.987l.174 1.137c.066.427.233.831.489 1.18l.68.927c.353.483.353 1.135 0 1.617l-.68.928a2.678 2.678 0 0 0-.489 1.18l-.174 1.136a1.178 1.178 0 0 1-.987.987l-1.137.174a2.678 2.678 0 0 0-1.18.489l-.927.68a1.178 1.178 0 0 1-1.617 0l-.928-.68a2.678 2.678 0 0 0-1.18-.489l-1.136-.174a1.178 1.178 0 0 1-.987-.987l-.174-1.137a2.678 2.678 0 0 0-.489-1.18l-.68-.927a1.178 1.178 0 0 1 0-1.617l.68-.928c.256-.349.423-.753.489-1.18l.174-1.136c.078-.51.478-.909.987-.987l1.137-.174a2.678 2.678 0 0 0 1.18-.489ZM11.28 6.78a.75.75 0 0 0-1.06-1.06L7 8.94 5.78 7.72a.75.75 0 0 0-1.06 1.06l1.75 1.75a.75.75 0 0 0 1.06 0l3.75-3.75Z"/></svg>Responsible AI<span class="badge">15-20%</span></a>
+      <a href="../copilot-features/" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25V2.75C0 1.784.784 1 1.75 1Zm12.5 1.5H1.75a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5Z"/></svg>Copilot in IDE &amp; CLI<span class="badge">25-30%</span></a>
+      <a href="../copilot-capabilities/" class="sidebar-link active"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M0 2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25ZM1.75 2.5a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25Zm7.47 3.97-3.72 3.72a.75.75 0 1 0 1.06 1.06l3.72-3.72a.75.75 0 0 0-1.06-1.06ZM6.28 5.22a.75.75 0 0 0-1.06 0L3.47 6.97a.75.75 0 0 0 0 1.06l1.75 1.75a.75.75 0 0 0 1.06-1.06L5.06 7.5l1.22-1.22a.75.75 0 0 0 0-1.06Zm4.5 1.75a.75.75 0 0 0 0 1.06l1.22 1.22-1.22 1.22a.75.75 0 1 0 1.06 1.06l1.75-1.75a.75.75 0 0 0 0-1.06l-1.75-1.75a.75.75 0 0 0-1.06 0Z"/></svg>Capabilities &amp; Policies<span class="badge">25-30%</span></a>
+      <a href="../data-architecture/" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h8.5C13.216 0 14 .784 14 1.75v12.5A1.75 1.75 0 0 1 12.25 16h-8.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25ZM4.75 4a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5ZM4 7.75A.75.75 0 0 1 4.75 7h6.5a.75.75 0 0 1 0 1.5h-6.5A.75.75 0 0 1 4 7.75ZM4.75 10a.75.75 0 0 0 0 1.5h3.5a.75.75 0 0 0 0-1.5h-3.5Z"/></svg>Data &amp; Architecture<span class="badge">10-15%</span></a>
+      <a href="../prompt-engineering/" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M0 2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25ZM1.75 2.5a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25ZM7 6.75A.75.75 0 0 1 7.75 6h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 7 6.75ZM3.25 2a.75.75 0 0 1 .75.75v2.5h2.5a.75.75 0 0 1 0 1.5H4v2.5a.75.75 0 0 1-1.5 0V2.75A.75.75 0 0 1 3.25 2Z"/></svg>Prompt Engineering<span class="badge">10-15%</span></a>
+      <a href="../developer-productivity/" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.25a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"/></svg>Developer Productivity<span class="badge">10-15%</span></a>
+      <a href="../privacy-safeguards/" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M7.467.133a1.748 1.748 0 0 1 1.066 0l5.25 1.68A1.75 1.75 0 0 1 15 3.48V7c0 1.566-.32 3.182-1.303 4.682-.983 1.498-2.585 2.813-5.032 3.855a1.697 1.697 0 0 1-1.33 0c-2.447-1.042-4.049-2.357-5.032-3.855C1.32 10.182 1 8.566 1 7V3.48a1.75 1.75 0 0 1 1.217-1.667Zm.61 1.429a.25.25 0 0 0-.153 0l-5.25 1.68a.25.25 0 0 0-.174.238V7c0 1.358.275 2.666 1.057 3.86.784 1.194 2.121 2.34 4.366 3.297a.196.196 0 0 0 .154 0c2.245-.956 3.582-2.104 4.366-3.298C13.225 9.666 13.5 8.36 13.5 7V3.48a.251.251 0 0 0-.174-.237l-5.25-1.68ZM8.75 4.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 1.5 0ZM9 10.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>Privacy &amp; Safeguards<span class="badge">10-15%</span></a>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="breadcrumb">
+      <a href="../">Home</a>
+      <span class="sep">/</span>
+      <span>GitHub Copilot Capabilities &amp; Policies</span>
+    </div>
+
+    <h1>Capabilities &amp; Organization Policies</h1>
+    <p class="lead">This skill area accounts for <strong>25&ndash;30%</strong> of the exam. It covers the full mode landscape (Agent, Edit, Plan), MCP, custom instructions, code review, PR summaries, Spaces, Spark, plans comparison, and all org-level admin controls.</p>
+
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong> These are personal study notes. Always verify against the <a href="https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-300" target="_blank" rel="noopener">official study guide</a>.
+    </div>
+
+    <nav class="page-toc">
+      <h4>On This Page</h4>
+      <ul>
+        <li><a href="#modes">Copilot Interaction Modes</a>
+          <ul>
+            <li><a href="#agent-mode">Agent Mode</a></li>
+            <li><a href="#edit-mode">Edit Mode</a></li>
+            <li><a href="#plan-mode">Plan Mode</a></li>
+            <li><a href="#sub-agents">Agent Sessions &amp; Sub-Agents</a></li>
+          </ul>
+        </li>
+        <li><a href="#mcp">Model Context Protocol (MCP)</a></li>
+        <li><a href="#code-review">Code Review &amp; Coding Assistance</a></li>
+        <li><a href="#spaces-spark">Spaces, Spark &amp; PR Summaries</a></li>
+        <li><a href="#custom-instructions">Custom Instructions &amp; Prompt Files</a></li>
+        <li><a href="#chat-details">Chat Limits, Feedback &amp; Commands</a></li>
+        <li><a href="#plans-comparison">Copilot Plans Comparison</a></li>
+        <li><a href="#org-management">Organization-Wide Management</a>
+          <ul>
+            <li><a href="#policy-management">Policy Management</a></li>
+            <li><a href="#audit-logs">Audit Log Events</a></li>
+            <li><a href="#rest-api">REST API Subscription Management</a></li>
+          </ul>
+        </li>
+        <li><a href="#resources">Study Resources</a></li>
+      </ul>
+    </nav>
+
+    <!-- ── Modes ── -->
+    <h2 id="modes">Copilot Interaction Modes</h2>
+    <p>Understanding when to use each mode is critical. The exam tests scenario-based questions about mode selection.</p>
+
+    <h3 id="agent-mode">Agent Mode</h3>
+    <div class="skill-section">
+      <h4>How Agent Mode Works</h4>
+      <ul>
+        <li>Copilot acts <strong>autonomously</strong> — it decides which files to touch and what changes to make</li>
+        <li>Can create, edit, and delete files across the entire repository</li>
+        <li>Runs terminal commands: builds, tests, dependency installs, linters</li>
+        <li>Iterates on its own errors — if a build fails, it diagnoses and fixes automatically</li>
+        <li>Delegates sub-tasks to <strong>Sub-Agents</strong> for optimized context usage</li>
+        <li>Available in VS Code (Copilot Chat panel) and GitHub.com</li>
+        <li><strong>Cloud Agent:</strong> A version of Agent Mode that runs remotely on GitHub infrastructure, not locally</li>
+      </ul>
+
+      <h4 style="margin-top:16px">When to Use Agent Mode</h4>
+      <ul>
+        <li>Complex feature implementations spanning many files</li>
+        <li>Setting up an entire project scaffold from scratch</li>
+        <li>Automated refactoring across a large codebase</li>
+        <li>When you want maximum autonomy and can review the result at the end</li>
+      </ul>
+    </div>
+
+    <h3 id="edit-mode">Edit Mode</h3>
+    <div class="skill-section">
+      <h4>How Edit Mode Works</h4>
+      <ul>
+        <li>You <strong>select which files</strong> Copilot is allowed to edit</li>
+        <li>Copilot proposes changes step-by-step and you approve each iteration</li>
+        <li>More controlled than Agent Mode — Copilot cannot touch files outside your selection</li>
+        <li>Available in VS Code and JetBrains IDEs</li>
+      </ul>
+
+      <h4 style="margin-top:16px">When to Use Edit Mode</h4>
+      <ul>
+        <li>Focused refactoring of a known set of files</li>
+        <li>Applying a consistent change across multiple specified files</li>
+        <li>When you need control over exactly what is modified</li>
+      </ul>
+    </div>
+
+    <h3 id="plan-mode">Plan Mode</h3>
+    <div class="skill-section">
+      <ul>
+        <li>Copilot produces a <strong>detailed implementation plan</strong> before any code changes are made</li>
+        <li>Plan lists which files will be created, edited, or deleted with explanations</li>
+        <li>You <strong>review and approve</strong> the plan before execution begins</li>
+        <li>After approval you can hand off to Agent Mode or Edit Mode for execution</li>
+        <li>Best for: complex tasks where you want full upfront visibility</li>
+      </ul>
+    </div>
+
+    <div class="callout warning">
+      <div class="callout-title">&#9888; Exam Tip — Mode Comparison</div>
+      <table>
+        <thead><tr><th>Mode</th><th>Who picks files?</th><th>Execution</th><th>Approval needed?</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Inline Suggestions</strong></td><td>Current file (auto)</td><td>Ghost text, Tab to accept</td><td>Per suggestion</td></tr>
+          <tr><td><strong>Chat</strong></td><td>User via context/vars</td><td>Suggests code in chat panel</td><td>User copies/applies</td></tr>
+          <tr><td><strong>Plan Mode</strong></td><td>Copilot (read-only plan)</td><td>No code changes yet</td><td>User approves plan</td></tr>
+          <tr><td><strong>Edit Mode</strong></td><td>User selects files</td><td>Step-by-step edits</td><td>Per iteration</td></tr>
+          <tr><td><strong>Agent Mode</strong></td><td>Copilot decides</td><td>Fully autonomous</td><td>End review only</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 id="sub-agents">Agent Sessions &amp; Sub-Agents</h3>
+    <div class="skill-section">
+      <ul>
+        <li><strong>Agent Sessions</strong> maintain context across multiple steps of a multi-part task</li>
+        <li><strong>Sub-Agents</strong> handle isolated delegated tasks with their own independent context windows</li>
+        <li>Architecture prevents context window exhaustion on large tasks</li>
+        <li>Sub-Agents report results back to the orchestrating agent session</li>
+        <li>Enables parallelism — multiple sub-tasks can run concurrently</li>
+      </ul>
+    </div>
+
+    <!-- ── MCP ── -->
+    <h2 id="mcp">Model Context Protocol (MCP)</h2>
+    <p>MCP is an open protocol that extends Copilot's capabilities by connecting it to external tools, services, and data sources. Reference: <a href="https://docs.github.com/en/copilot/customizing-copilot/extending-copilot-chat-with-mcp" target="_blank" rel="noopener">Extending Copilot with MCP</a>.</p>
+
+    <div class="skill-section">
+      <h4>Key MCP Concepts</h4>
+      <ul>
+        <li>Connects Copilot to external systems: databases, APIs, Jira, Slack, Teams, Azure Boards, Linear</li>
+        <li>Configured via <strong>MCP servers</strong> that expose tools and resources to Copilot</li>
+        <li>On GitHub.com, the <strong>GitHub MCP server</strong> is automatically configured — enables branch creation, PR merging, issue management directly from Copilot Chat</li>
+        <li>Organizations can manage MCP availability via the <strong>MCP policy</strong> in admin settings</li>
+        <li>Enterprise owners control whether users can connect MCP servers</li>
+      </ul>
+
+      <h4 style="margin-top:16px">Policy Levels for MCP</h4>
+      <ul>
+        <li>Enterprise: enable/disable MCP for all orgs, or delegate to org owners</li>
+        <li>Organization: enable/disable MCP for the org's members</li>
+        <li>Access controlled under <strong>AI Controls &gt; Model Context Protocol (MCP)</strong></li>
+      </ul>
+    </div>
+
+    <!-- ── Code Review ── -->
+    <h2 id="code-review">Code Review &amp; Coding Assistance</h2>
+    <div class="skill-section">
+      <h4>Copilot Code Review</h4>
+      <ul>
+        <li>Reviews pull requests on GitHub.com with AI-powered feedback</li>
+        <li>Identifies bugs, security issues, style violations, and suggests improvements</li>
+        <li>Configured with <strong>customizable review standards</strong> via instructions files</li>
+        <li>Admins toggle it via <strong>Settings &gt; Copilot &gt; Code review</strong></li>
+        <li>Custom instructions for code review are pulled from the PR's <strong>base branch</strong></li>
+        <li>Org admins enable <strong>Copilot Code Review policies</strong> to roll it out org-wide</li>
+        <li>Also available in supported IDEs for "Review selection" (Free plan: VS Code only)</li>
+      </ul>
+    </div>
+
+    <!-- ── Spaces / Spark / PR ── -->
+    <h2 id="spaces-spark">Spaces, Spark &amp; PR Summaries</h2>
+    <div class="skill-section">
+      <h4>Copilot Spaces</h4>
+      <ul>
+        <li>Curated workspaces combining code, documentation, and context</li>
+        <li>Gives Copilot a richer, more focused view of a project or area</li>
+        <li>Shareable with team members for consistent AI assistance</li>
+        <li>Helps reduce context ambiguity in large mono-repos</li>
+      </ul>
+
+      <h4 style="margin-top:16px">GitHub Spark</h4>
+      <ul>
+        <li>AI-powered tool for building small web applications using natural language — no coding required</li>
+        <li>Creates functional micro-apps and prototypes quickly</li>
+        <li>Apps can be deployed from the CLI or web interface</li>
+        <li>Uses prompt engineering techniques to refine the app iteratively</li>
+      </ul>
+
+      <h4 style="margin-top:16px">Pull Request Summaries</h4>
+      <ul>
+        <li>Copilot automatically generates a summary of PR changes</li>
+        <li>Describes what changed, why, and potential impact</li>
+        <li>Helps reviewers quickly understand a PR's scope without reading every diff line</li>
+        <li>Available to all plans on GitHub.com</li>
+      </ul>
+    </div>
+
+    <!-- ── Custom Instructions ── -->
+    <h2 id="custom-instructions">Custom Instructions &amp; Prompt Files</h2>
+    <p>Custom instructions let you tailor Copilot's behavior without repeating context in every prompt. Reference: <a href="https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot" target="_blank" rel="noopener">Adding custom instructions</a>.</p>
+
+    <div class="skill-section">
+      <h4>Instructions File Locations &amp; Priority</h4>
+      <table>
+        <thead><tr><th>File / Location</th><th>Scope</th><th>Priority</th></tr></thead>
+        <tbody>
+          <tr><td>Personal instructions (GitHub.com profile settings)</td><td>All repositories for the user</td><td>Highest</td></tr>
+          <tr><td><code>.github/copilot-instructions.md</code></td><td>Entire repository</td><td>Middle</td></tr>
+          <tr><td>Organization-level instructions</td><td>All repos in the org</td><td>Lowest</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:8px;color:var(--text-muted);font-size:13px">When multiple levels apply, <strong>all are provided</strong> to Copilot — not just the highest priority one.</p>
+
+      <h4 style="margin-top:16px">Path-Specific Instructions</h4>
+      <ul>
+        <li>Create <code>NAME.instructions.md</code> files inside <code>.github/instructions/</code></li>
+        <li>Use a frontmatter <code>applyTo</code> field with glob patterns to scope them:</li>
+      </ul>
+      <pre><code>---
+applyTo: "app/models/**/*.rb"
+---
+Always use ActiveRecord validations, never raw SQL.</code></pre>
+      <ul>
+        <li>Use <code>excludeAgent</code> to prevent an instruction file from applying to a specific agent:</li>
+      </ul>
+      <pre><code>---
+applyTo: "**"
+excludeAgent: "code-review"
+---</code></pre>
+      <ul>
+        <li>Path-specific instructions currently apply to <strong>Copilot cloud agent</strong> and <strong>Copilot code review</strong> on GitHub.com</li>
+      </ul>
+
+      <h4 style="margin-top:16px">Agent-Specific Files</h4>
+      <ul>
+        <li>Repositories can also contain <code>AGENTS.md</code>, <code>CLAUDE.md</code>, or <code>GEMINI.md</code> for agent-specific guidance</li>
+      </ul>
+
+      <h4 style="margin-top:16px">Prompt Files</h4>
+      <ul>
+        <li>Reusable prompt templates stored in the repository</li>
+        <li>Shared across the team for consistent Copilot responses</li>
+        <li>Reduce variance in AI output for common tasks (e.g., "write a REST endpoint")</li>
+      </ul>
+    </div>
+
+    <div class="callout warning">
+      <div class="callout-title">&#9888; Exam Tip — Instructions Priority</div>
+      <p>Know the priority order: <strong>Personal &gt; Repository &gt; Organization</strong>. Also know that when multiple levels are active, <em>all sets of instructions are provided</em> to Copilot — they are not mutually exclusive.</p>
+    </div>
+
+    <!-- ── Chat Limits ── -->
+    <h2 id="chat-details">Chat Limits, Feedback &amp; Commands</h2>
+    <div class="skill-section">
+      <ul>
+        <li>Chat has <strong>rate limits</strong> that vary by plan (see plans table below)</li>
+        <li>Users provide feedback via 👍/👎 on responses to improve Copilot</li>
+        <li>Chat history within a session is included in the prompt, consuming context window tokens</li>
+        <li>Starting a new chat session resets context — useful when a conversation goes off track</li>
+        <li>Inline chat (<kbd>Ctrl+I</kbd>) targets selected code or the cursor position</li>
+      </ul>
+    </div>
+
+    <!-- ── Plans ── -->
+    <h2 id="plans-comparison">Copilot Plans Comparison</h2>
+    <p>Plan differences are heavily tested. Know the key distinguishing features of each tier. Reference: <a href="https://docs.github.com/en/copilot/about-github-copilot/plans-for-github-copilot" target="_blank" rel="noopener">Plans for GitHub Copilot</a>.</p>
+
+    <div class="skill-section">
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Free</th>
+            <th>Pro ($10/mo)</th>
+            <th>Pro+ ($39/mo)</th>
+            <th>Max ($100/mo)</th>
+            <th>Business ($19/seat)</th>
+            <th>Enterprise ($39/seat)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Premium requests / AI credits per month</td><td>50</td><td>300</td><td>1,500</td><td>Highest individual allowance</td><td>300 / user</td><td>1,000 / user</td></tr>
+          <tr><td>Inline suggestions</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><td>Copilot Chat (IDE)</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><td>Agent Mode</td><td>✗</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><td>Cloud Agent</td><td>✗</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><td>MCP &amp; third-party agents</td><td>✗</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><td>Priority access to new models/features</td><td>✗</td><td>✗</td><td>✗</td><td>✓</td><td>✗</td><td>✓</td></tr>
+          <tr><td>Content exclusions</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✓</td><td>✓</td></tr>
+          <tr><td>Org policy management</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✓</td><td>✓</td></tr>
+          <tr><td>Audit log events</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✓</td><td>✓</td></tr>
+          <tr><td>Data retention for training</td><td>Opt-in</td><td>Opt-in</td><td>Opt-in</td><td>Opt-in</td><td>No</td><td>No</td></tr>
+          <tr><td>Models: Claude Haiku 4.5</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><td>Models: Claude Sonnet / Gemini 2.5 Pro</td><td>✗</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><td>Models: Claude Opus / Gemini 3 Flash</td><td>✗</td><td>✗</td><td>✓</td><td>✓</td><td>✗</td><td>✓</td></tr>
+          <tr><td>Student / Educator / OSS access</td><td>–</td><td>Free</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:10px;font-size:13px;color:var(--text-muted)">GitHub's current documentation refers to the monthly usage allowance as <strong>"GitHub AI Credits"</strong> (the same concept historically called "premium requests"). Exact numeric allowances for Max and for AI-credit-denominated tiers are not published as fixed figures — know it qualitatively as "the highest individual allowance," scaled above Pro+.</p>
+    </div>
+
+    <div class="callout danger">
+      <div class="callout-title">&#9888; Critical Exam Fact</div>
+      <p><strong>Content exclusions, org-wide policy management, and audit logs are Business/Enterprise-only</strong> — this includes Max, which is still an individual plan with no org-admin controls. Data is <em>not</em> retained for model training on Business/Enterprise. Individual plans (Free, Pro, Pro+, Max) can opt in or out of training data usage.</p>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-title">&#9432; What Is Copilot Max?</div>
+      <p><strong>GitHub Copilot Max</strong> ($100/month) is the top individual tier, sitting above Pro+. It targets sustained, high-volume individual users: the highest individual AI-credit allowance plus <strong>priority access to new models and features</strong> before they roll out more broadly. Functionally it matches Pro+ on Agent Mode, Cloud Agent, MCP, and model catalog access — the differentiators are allowance size and priority rollout, not new capabilities.</p>
+    </div>
+
+    <!-- ── Org Management ── -->
+    <h2 id="org-management">Organization-Wide Management</h2>
+
+    <h3 id="policy-management">Policy Management</h3>
+    <div class="skill-section">
+      <h4>Three Policy Categories (AI Controls)</h4>
+      <ol>
+        <li><strong>Agents</strong> — control AI agent (cloud agent) availability</li>
+        <li><strong>Copilot</strong> — control Copilot feature availability (suggestions, chat, code review, etc.)</li>
+        <li><strong>Model Context Protocol (MCP)</strong> — control whether MCP server connections are allowed</li>
+      </ol>
+
+      <h4 style="margin-top:16px">Scope Hierarchy</h4>
+      <ul>
+        <li><strong>Enterprise owners</strong> can define a policy for the entire enterprise, or delegate decisions to individual org owners</li>
+        <li><strong>Organization owners</strong> configure policies for their org under <em>Settings &gt; Copilot</em></li>
+        <li>Implementation methods: dropdown menus, toggles, or named policy links</li>
+        <li>Specific controls: enable Copilot Code Review policies, manage feature availability across IDEs and github.com, enable user feedback collection</li>
+      </ul>
+    </div>
+
+    <h3 id="audit-logs">Audit Log Events</h3>
+    <div class="skill-section">
+      <ul>
+        <li>Copilot generates audit log events visible in the org/enterprise audit log on GitHub</li>
+        <li><strong>Types of events tracked:</strong>
+          <ul>
+            <li>Seat assignments added or removed</li>
+            <li>Policy configuration changes (features enabled/disabled)</li>
+            <li>Content exclusion rule changes</li>
+            <li>Copilot usage activity (feature interactions)</li>
+          </ul>
+        </li>
+        <li>Available on <strong>Business and Enterprise plans only</strong></li>
+        <li>Used for compliance, security review, and governance</li>
+        <li>Reference: <a href="https://docs.github.com/en/copilot/rolling-out-github-copilot-at-scale/reviewing-audit-log-events-for-github-copilot" target="_blank" rel="noopener">Reviewing audit log events for Copilot</a></li>
+      </ul>
+    </div>
+
+    <h3 id="rest-api">REST API Subscription Management</h3>
+    <div class="skill-section">
+      <p>The <a href="https://docs.github.com/rest/copilot" target="_blank" rel="noopener">GitHub REST API</a> provides dedicated endpoints for Copilot seat and billing administration at the organization level.</p>
+      <table>
+        <thead><tr><th>Method</th><th>Endpoint</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td>GET</td><td><code>/orgs/{org}/copilot/billing</code></td><td>Org's Copilot subscription info: seat breakdown and feature policies</td></tr>
+          <tr><td>GET</td><td><code>/orgs/{org}/copilot/billing/seats</code></td><td>Lists every Copilot seat the org is currently billed for</td></tr>
+          <tr><td>POST</td><td><code>/orgs/{org}/copilot/billing/selected_teams</code></td><td>Grants Copilot access to all members of specified teams</td></tr>
+          <tr><td>DELETE</td><td><code>/orgs/{org}/copilot/billing/selected_teams</code></td><td>Sets seats for those teams' members to "pending cancellation"</td></tr>
+          <tr><td>POST</td><td><code>/orgs/{org}/copilot/billing/selected_users</code></td><td>Grants Copilot seat access to individual users</td></tr>
+          <tr><td>DELETE</td><td><code>/orgs/{org}/copilot/billing/selected_users</code></td><td>Sets seats for those users to "pending cancellation"</td></tr>
+          <tr><td>GET</td><td><code>/orgs/{org}/members/{username}/copilot</code></td><td>Seat details for one specific org member</td></tr>
+          <tr><td>GET</td><td><code>/orgs/{org}/copilot/usage</code></td><td>Daily aggregated usage metrics across the organization</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:10px;font-size:13px;color:var(--text-muted)">All endpoints require organization-owner authorization plus the <code>manage_billing:copilot</code> or <code>read:org</code> scope (<code>admin:org</code> for write operations).</p>
+      <ul style="margin-top:12px">
+        <li>Useful for automating seat onboarding/offboarding scripts at scale (hundreds or thousands of developers)</li>
+        <li>"Pending cancellation" seats remain billed until the end of the current billing cycle — removal is not immediate</li>
+        <li>Content exclusion rules can also be managed via the REST API for bulk configuration</li>
+      </ul>
+    </div>
+
+    <div class="callout warning">
+      <div class="callout-title">&#9888; Exam Tip — Cancellation Is Not Instant</div>
+      <p>DELETE operations on seats set them to <strong>"pending cancellation"</strong>, not immediate removal — the org is still billed until the cycle ends. Don't assume DELETE = instant access revocation.</p>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-title">&#128161; Study Tip</div>
+      <p>Review the plans table carefully. The exam frequently asks about which plan is required for a given feature. Know: content exclusions = Business+, audit logs = Business+, advanced models (Opus/Gemini 3 Flash) = Pro+, Max, or Enterprise, Agent Mode = Pro+ and above, priority model access = Max or Enterprise only.</p>
+    </div>
+
+    <div class="skill-section">
+      <h4>Network Settings (Enterprise Rollouts)</h4>
+      <ul>
+        <li>Copilot continuously "interacts with a remote machine learning model and checks for updates" — corporate firewalls/proxies can block this traffic and cause suggestions to silently fail</li>
+        <li>Enterprises behind a restrictive firewall must <strong>allowlist the required Copilot domains</strong> before rollout (see the official allowlist reference below)</li>
+        <li>This is a common root cause when "Copilot works at home but not on the corporate network"</li>
+      </ul>
+    </div>
+
+    <!-- Resources -->
+    <h2 id="resources">Study Resources</h2>
+    <ul class="resource-list">
+      <li>
+        <a href="https://docs.github.com/en/copilot/about-github-copilot/plans-for-github-copilot" target="_blank" rel="noopener">Copilot Plans &amp; Features (GitHub Docs)</a>
+        <span class="resource-desc">Complete plan comparison table with feature availability and pricing.</span>
+      </li>
+      <li>
+        <a href="https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot" target="_blank" rel="noopener">Custom Instructions for Copilot (GitHub Docs)</a>
+        <span class="resource-desc">File locations, priority order, path-specific instructions, agent-specific files.</span>
+      </li>
+      <li>
+        <a href="https://docs.github.com/en/copilot/managing-copilot" target="_blank" rel="noopener">Managing Copilot (GitHub Docs)</a>
+        <span class="resource-desc">Full admin guide: policies, seat management, audit logs, content exclusions.</span>
+      </li>
+      <li>
+        <a href="https://docs.github.com/rest/copilot" target="_blank" rel="noopener">Copilot REST API (GitHub Docs)</a>
+        <span class="resource-desc">Endpoints for programmatic seat and subscription management.</span>
+      </li>
+      <li>
+        <a href="https://learn.microsoft.com/en-us/training/paths/copilot/" target="_blank" rel="noopener">GitHub Copilot Fundamentals Part 1 (Microsoft Learn)</a>
+        <span class="resource-desc">Covers IDE features, plans, and organizational management.</span>
+      </li>
+      <li>
+        <a href="https://docs.github.com/en/copilot/troubleshooting-github-copilot/troubleshooting-firewall-settings-for-github-copilot" target="_blank" rel="noopener">Troubleshooting Firewall Settings for Copilot (GitHub Docs)</a>
+        <span class="resource-desc">Network/proxy troubleshooting and the allowlist reference for enterprise rollouts.</span>
+      </li>
+      <li>
+        <a href="https://ghcertified.com/en" target="_blank" rel="noopener">GH Certified — Practice Questions</a>
+        <span class="resource-desc">Community practice tests with capabilities and policy questions.</span>
+      </li>
+    </ul>
+
+    <div class="page-nav">
+      <a href="../copilot-features/">
+        <span class="nav-label">&larr; Previous</span>
+        <span class="nav-title">Copilot in IDE &amp; CLI</span>
+      </a>
+      <a href="../data-architecture/" class="next">
+        <span class="nav-label">Next &rarr;</span>
+        <span class="nav-title">Data &amp; Architecture</span>
+      </a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col footer-col-author">
+        <div class="author-card">
+          <img src="../assets/images/marcogrimaldi29.jpg" alt="Marco Grimaldi">
+          <div>
+            <span class="maintainer-badge">Maintainer</span>
+            <div class="ac-name">Marco Grimaldi</div>
+            <div class="ac-role">Cloud Solution Architect</div>
+          </div>
+        </div>
+        <div class="author-links">
+          <a href="https://github.com/marcogrimaldi29" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a>
+          <a href="https://www.linkedin.com/in/marco-grimaldi29/" target="_blank" rel="noopener">in LinkedIn</a>
+          <a href="https://marcogrimaldi29.com/" target="_blank" rel="noopener"><img src="../assets/images/teal-sunset-no-bg.png" alt="" width="14" height="14"> Website</a>
+        </div>
+        <div class="star-cta">&#11088; Found these notes helpful? <strong>Star the repo on GitHub</strong> to support the project and help others find it.</div>
+      </div>
+      <div class="footer-col">
+        <h5>Skills Measured</h5>
+        <a href="../responsible-ai/">Responsible AI</a>
+        <a href="../copilot-features/">Copilot in IDE &amp; CLI</a>
+        <a href="../copilot-capabilities/">Capabilities &amp; Policies</a>
+        <a href="../data-architecture/">Data &amp; Architecture</a>
+        <a href="../prompt-engineering/">Prompt Engineering</a>
+        <a href="../developer-productivity/">Developer Productivity</a>
+        <a href="../privacy-safeguards/">Privacy &amp; Safeguards</a>
+      </div>
+      <div class="footer-col">
+        <h5>Official Resources</h5>
+        <a href="https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-300" target="_blank" rel="noopener">GH-300 Study Guide</a>
+        <a href="https://learn.microsoft.com/en-us/credentials/certifications/github-copilot/" target="_blank" rel="noopener">Certification Page</a>
+        <a href="https://learn.microsoft.com/en-us/training/courses/gh-300t00" target="_blank" rel="noopener">Course GH-300T00-A</a>
+        <a href="https://docs.github.com/en/copilot" target="_blank" rel="noopener">GitHub Copilot Docs</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Marco Grimaldi &middot; For study &amp; learning purposes only. Not affiliated with Microsoft or GitHub.</span>
+      <span>Always verify against the <a href="https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-300" target="_blank" rel="noopener">official study guide</a>.</span>
+    </div>
+  </footer>
+
+  <a href="../" class="home-fab" aria-label="Home" title="Home">&#127968;</a>
+  <button class="back-to-top" aria-label="Back to top">&#128285;</button>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

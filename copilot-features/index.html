@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copilot in IDE &amp; CLI | GH-300 Study Notes</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="../assets/images/teal-sunset-no-bg.png">
+  <link rel="apple-touch-icon" href="../assets/images/teal-sunset-no-bg.png">
+</head>
+<body>
+
+  <div class="bg-animation"><div class="cloud"></div><div class="cloud"></div><div class="cloud"></div></div>
+  <div class="code-rain"></div>
+
+  <header class="site-header">
+    <a href="../" class="header-logo">
+      <img src="../assets/images/teal-sunset-no-bg.png" alt="GH-300 Study Notes logo">
+      <span class="logo-text">GH-300 <span class="muted">Study Notes</span></span>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+    <nav class="header-nav">
+      <a class="star-btn" href="https://github.com/marcogrimaldi29/gh-300-study-notes" target="_blank" rel="noopener" title="Star this repo on GitHub">
+        <span class="star-emoji">&#11088;</span>
+        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
+        <span class="star-label">Star</span>
+      </a>
+    </nav>
+  </header>
+
+  <div class="sidebar-overlay"></div>
+
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Overview</div>
+      <a href="../" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Z"/></svg>Home</a>
+      <a href="../exam-tips/" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75ZM5.75 12a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5Z"/></svg>Exam Tips &amp; Caveats</a>
+      <a href="https://learn.microsoft.com/en-us/credentials/certifications/github-copilot/" class="sidebar-link" target="_blank" rel="noopener"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg>Official Certification</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Skills Measured</div>
+      <a href="../responsible-ai/" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M9.585.52a2.678 2.678 0 0 0-3.17 0l-.928.68a1.178 1.178 0 0 1-.518.215L3.83 1.59a2.678 2.678 0 0 0-2.24 2.24l-.175 1.14a1.178 1.178 0 0 1-.215.518l-.68.928a2.678 2.678 0 0 0 0 3.17l.68.928c.113.153.186.33.215.518l.175 1.138a2.678 2.678 0 0 0 2.24 2.24l1.138.175c.187.029.365.102.518.215l.928.68a2.678 2.678 0 0 0 3.17 0l.928-.68a1.17 1.17 0 0 1 .518-.215l1.138-.175a2.678 2.678 0 0 0 2.241-2.24l.175-1.138c.029-.187.102-.365.215-.518l.68-.928a2.678 2.678 0 0 0 0-3.17l-.68-.928a1.179 1.179 0 0 1-.215-.518L14.41 3.83a2.678 2.678 0 0 0-2.24-2.24l-1.138-.175a1.179 1.179 0 0 1-.518-.215ZM7.303 1.728l.928-.68a1.178 1.178 0 0 1 1.395 0l.928.68c.348.256.752.423 1.18.489l1.136.174c.51.078.909.478.987.987l.174 1.137c.066.427.233.831.489 1.18l.68.927c.353.483.353 1.135 0 1.617l-.68.928a2.678 2.678 0 0 0-.489 1.18l-.174 1.136a1.178 1.178 0 0 1-.987.987l-1.137.174a2.678 2.678 0 0 0-1.18.489l-.927.68a1.178 1.178 0 0 1-1.617 0l-.928-.68a2.678 2.678 0 0 0-1.18-.489l-1.136-.174a1.178 1.178 0 0 1-.987-.987l-.174-1.137a2.678 2.678 0 0 0-.489-1.18l-.68-.927a1.178 1.178 0 0 1 0-1.617l.68-.928c.256-.349.423-.753.489-1.18l.174-1.136c.078-.51.478-.909.987-.987l1.137-.174a2.678 2.678 0 0 0 1.18-.489ZM11.28 6.78a.75.75 0 0 0-1.06-1.06L7 8.94 5.78 7.72a.75.75 0 0 0-1.06 1.06l1.75 1.75a.75.75 0 0 0 1.06 0l3.75-3.75Z"/></svg>Responsible AI<span class="badge">15-20%</span></a>
+      <a href="../copilot-features/" class="sidebar-link active"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25V2.75C0 1.784.784 1 1.75 1Zm12.5 1.5H1.75a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5Z"/></svg>Copilot in IDE &amp; CLI<span class="badge">25-30%</span></a>
+      <a href="../copilot-capabilities/" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M0 2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25ZM1.75 2.5a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25Zm7.47 3.97-3.72 3.72a.75.75 0 1 0 1.06 1.06l3.72-3.72a.75.75 0 0 0-1.06-1.06ZM6.28 5.22a.75.75 0 0 0-1.06 0L3.47 6.97a.75.75 0 0 0 0 1.06l1.75 1.75a.75.75 0 0 0 1.06-1.06L5.06 7.5l1.22-1.22a.75.75 0 0 0 0-1.06Zm4.5 1.75a.75.75 0 0 0 0 1.06l1.22 1.22-1.22 1.22a.75.75 0 1 0 1.06 1.06l1.75-1.75a.75.75 0 0 0 0-1.06l-1.75-1.75a.75.75 0 0 0-1.06 0Z"/></svg>Capabilities &amp; Policies<span class="badge">25-30%</span></a>
+      <a href="../data-architecture/" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h8.5C13.216 0 14 .784 14 1.75v12.5A1.75 1.75 0 0 1 12.25 16h-8.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25ZM4.75 4a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5ZM4 7.75A.75.75 0 0 1 4.75 7h6.5a.75.75 0 0 1 0 1.5h-6.5A.75.75 0 0 1 4 7.75ZM4.75 10a.75.75 0 0 0 0 1.5h3.5a.75.75 0 0 0 0-1.5h-3.5Z"/></svg>Data &amp; Architecture<span class="badge">10-15%</span></a>
+      <a href="../prompt-engineering/" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M0 2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25ZM1.75 2.5a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25ZM7 6.75A.75.75 0 0 1 7.75 6h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 7 6.75ZM3.25 2a.75.75 0 0 1 .75.75v2.5h2.5a.75.75 0 0 1 0 1.5H4v2.5a.75.75 0 0 1-1.5 0V2.75A.75.75 0 0 1 3.25 2Z"/></svg>Prompt Engineering<span class="badge">10-15%</span></a>
+      <a href="../developer-productivity/" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.25a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"/></svg>Developer Productivity<span class="badge">10-15%</span></a>
+      <a href="../privacy-safeguards/" class="sidebar-link"><svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M7.467.133a1.748 1.748 0 0 1 1.066 0l5.25 1.68A1.75 1.75 0 0 1 15 3.48V7c0 1.566-.32 3.182-1.303 4.682-.983 1.498-2.585 2.813-5.032 3.855a1.697 1.697 0 0 1-1.33 0c-2.447-1.042-4.049-2.357-5.032-3.855C1.32 10.182 1 8.566 1 7V3.48a1.75 1.75 0 0 1 1.217-1.667Zm.61 1.429a.25.25 0 0 0-.153 0l-5.25 1.68a.25.25 0 0 0-.174.238V7c0 1.358.275 2.666 1.057 3.86.784 1.194 2.121 2.34 4.366 3.297a.196.196 0 0 0 .154 0c2.245-.956 3.582-2.104 4.366-3.298C13.225 9.666 13.5 8.36 13.5 7V3.48a.251.251 0 0 0-.174-.237l-5.25-1.68ZM8.75 4.75v3a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 1.5 0ZM9 10.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>Privacy &amp; Safeguards<span class="badge">10-15%</span></a>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="breadcrumb">
+      <a href="../">Home</a>
+      <span class="sep">/</span>
+      <span>Use GitHub Copilot Features</span>
+    </div>
+
+    <h1>Use GitHub Copilot Features</h1>
+    <p class="lead">This skill area accounts for <strong>25&ndash;30%</strong> of the exam &mdash; the largest weighted section. It covers enabling Copilot in IDEs, all trigger modes (inline, chat, Plan Mode), the full CLI, and file exclusions. Master every detail here.</p>
+
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong> These are personal study notes. Always verify against the <a href="https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-300" target="_blank" rel="noopener">official study guide</a>.
+    </div>
+
+    <nav class="page-toc">
+      <h4>On This Page</h4>
+      <ul>
+        <li><a href="#copilot-ide">GitHub Copilot in the IDE</a>
+          <ul>
+            <li><a href="#supported-ides">Supported IDEs</a></li>
+            <li><a href="#enable-copilot">Enabling Copilot</a></li>
+            <li><a href="#inline-suggestions">Inline Suggestions &amp; Keyboard Shortcuts</a></li>
+            <li><a href="#copilot-chat">Copilot Chat: Commands, Participants &amp; Variables</a></li>
+            <li><a href="#plan-mode">Plan Mode</a></li>
+            <li><a href="#smart-actions">Smart Actions</a></li>
+            <li><a href="#file-exclusions">File &amp; Repository Exclusions in IDE</a></li>
+            <li><a href="#command-palette">Command Palette</a></li>
+            <li><a href="#troubleshooting-ide">Troubleshooting in the IDE</a></li>
+          </ul>
+        </li>
+        <li><a href="#copilot-cli">GitHub Copilot CLI</a>
+          <ul>
+            <li><a href="#cli-overview">CLI Overview: Old Extension vs. New Agentic CLI</a></li>
+            <li><a href="#cli-install">Installation &amp; Authentication</a></li>
+            <li><a href="#cli-modes">Interactive vs. Programmatic Mode</a></li>
+            <li><a href="#cli-security">Security: Trusted Directories &amp; Tool Approval</a></li>
+            <li><a href="#cli-commands">Legacy Commands: suggest &amp; explain</a></li>
+          </ul>
+        </li>
+        <li><a href="#resources">Study Resources</a></li>
+      </ul>
+    </nav>
+
+    <!-- ── IDE ── -->
+    <h2 id="copilot-ide">GitHub Copilot in the IDE</h2>
+
+    <h3 id="supported-ides">Supported IDEs</h3>
+    <p>GitHub Copilot works across a wide range of editors. Feature availability may vary — VS Code typically receives new features first.</p>
+
+    <div class="skill-section">
+      <table>
+        <thead><tr><th>IDE / Editor</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Visual Studio Code</strong></td><td>Broadest feature set; first to receive new features; supports model selection for inline suggestions</td></tr>
+          <tr><td><strong>Visual Studio 2022</strong> (17.8+)</td><td>Includes comment suggestions; uses <code>#solution</code> chat variable to reference entire solution</td></tr>
+          <tr><td><strong>JetBrains IDEs</strong></td><td>IntelliJ IDEA, PyCharm, Android Studio, CLion, GoLand, PhpStorm, Rider, RubyMine, WebStorm, and more</td></tr>
+          <tr><td><strong>Neovim / Vim</strong></td><td>Core inline suggestions; minimal UI</td></tr>
+          <tr><td><strong>Eclipse</strong></td><td>Core functionality</td></tr>
+          <tr><td><strong>Azure Data Studio</strong></td><td>SQL-focused workflows</td></tr>
+          <tr><td><strong>Xcode</strong></td><td>Requires disabling native predictive text; full suggestions via modifier keys, not Tab</td></tr>
+          <tr><td><strong>GitHub.com / Mobile</strong></td><td>Chat, PR summaries, code review; not a local IDE extension</td></tr>
+          <tr><td><strong>Windows Terminal Canary</strong></td><td>CLI integration</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 id="enable-copilot">Enabling Copilot in the IDE</h3>
+    <div class="skill-section">
+      <h4>Prerequisites</h4>
+      <ul>
+        <li>An active GitHub Copilot subscription (Free, Pro, Pro+, Max, Business, or Enterprise)</li>
+        <li>The <strong>GitHub Copilot extension</strong> installed from your IDE's marketplace</li>
+        <li>Authentication with your GitHub account inside the extension</li>
+        <li>For <strong>Business / Enterprise</strong>: organization admin must enable Copilot and assign a seat to the user</li>
+        <li>For <strong>Free plan</strong>: limited access with 50 premium requests/month included</li>
+      </ul>
+
+      <h4 style="margin-top:16px">Enable / Disable Granularity (VS Code)</h4>
+      <ul>
+        <li>Click the Copilot status icon in the bottom status bar → <strong>Enable</strong> or <strong>Disable</strong></li>
+        <li>When disabling, VS Code asks whether to disable <strong>globally</strong> or just for the <strong>current file's language</strong></li>
+        <li>Per-language control also available under <em>Settings → Extensions → GitHub Copilot → Editor: Enable Auto Completions</em></li>
+        <li>You can enable inline suggestions for some languages while disabling them for others (e.g., disable for Markdown, keep enabled for Python)</li>
+      </ul>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-title">&#9432; Copilot Free Plan</div>
+      <p>As of late 2024 GitHub offers a <strong>free tier</strong> of Copilot with limited features. Students, educators, and verified open-source maintainers may qualify for complimentary access to higher tiers. Always check the <a href="https://docs.github.com/en/copilot/about-github-copilot/plans-for-github-copilot" target="_blank" rel="noopener">plans page</a> for current eligibility.</p>
+    </div>
+
+    <h3 id="inline-suggestions">Inline Suggestions &amp; Keyboard Shortcuts</h3>
+    <p>Inline suggestions appear as gray "ghost text" as you type. They are the most fundamental form of Copilot interaction.</p>
+
+    <div class="skill-section">
+      <h4>Ghost Text Behavior</h4>
+      <ul>
+        <li>Suggestions appear automatically after a brief pause while typing</li>
+        <li>Triggered by: writing code, writing comments, starting a new function, or naming a variable</li>
+        <li>Multiple candidate suggestions exist — you can cycle through them</li>
+        <li>If you receive <strong>no or limited suggestions</strong>, <em>duplication detection may be enabled</em> — this is a common troubleshooting point</li>
+      </ul>
+
+      <h4 style="margin-top:16px">Keyboard Shortcuts Reference</h4>
+      <table>
+        <thead><tr><th>Action</th><th>macOS</th><th>Windows / Linux</th></tr></thead>
+        <tbody>
+          <tr><td>Accept full suggestion</td><td><kbd>Tab</kbd></td><td><kbd>Tab</kbd></td></tr>
+          <tr><td>Dismiss suggestion</td><td><kbd>Esc</kbd></td><td><kbd>Esc</kbd></td></tr>
+          <tr><td>Next suggestion</td><td><kbd>Option+]</kbd></td><td><kbd>Alt+]</kbd></td></tr>
+          <tr><td>Previous suggestion</td><td><kbd>Option+[</kbd></td><td><kbd>Alt+[</kbd></td></tr>
+          <tr><td>Accept word-by-word</td><td><kbd>Command+→</kbd></td><td><kbd>Control+→</kbd></td></tr>
+          <tr><td>Open multiple suggestions panel</td><td><kbd>Cmd+Shift+A</kbd> (VS Code)</td><td><kbd>Ctrl+Enter</kbd> (VS Code / JetBrains)</td></tr>
+          <tr><td>Open inline chat</td><td><kbd>Command+I</kbd> (VS Code)</td><td><kbd>Ctrl+I</kbd> (VS Code) / <kbd>Ctrl+Shift+I</kbd> (JetBrains)</td></tr>
+          <tr><td>Open quick chat</td><td><kbd>Shift+Option+Command+L</kbd></td><td><kbd>Ctrl+Shift+Alt+L</kbd></td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:10px;font-size:13px;color:var(--text-muted)">Note: Xcode handles full suggestion acceptance via modifier keys rather than Tab. Line-by-line acceptance requires custom shortcut configuration in most editors.</p>
+    </div>
+
+    <div class="callout warning">
+      <div class="callout-title">&#9888; Exam Tip — Shortcuts</div>
+      <p>Memorise the cycling shortcuts (<kbd>Alt+]</kbd> / <kbd>Alt+[</kbd>) and the accept shortcut (<kbd>Tab</kbd>). Know that <strong>opening the multiple suggestions panel</strong> is done with <kbd>Ctrl+Enter</kbd> on Windows. The "word-by-word" accept shortcut (<kbd>Control+→</kbd>) is also frequently tested.</p>
+    </div>
+
+    <h3 id="copilot-chat">Copilot Chat: Commands, Participants &amp; Variables</h3>
+    <p>Copilot Chat provides a conversational interface accessible from the IDE side panel, inline within the editor, and on GitHub.com. Reference: <a href="https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide" target="_blank" rel="noopener">Asking Copilot questions in your IDE</a>.</p>
+
+    <div class="skill-section">
+      <h4>Slash Commands (type <code>/</code> to see full list)</h4>
+      <table>
+        <thead><tr><th>Command</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td><code>/explain</code></td><td>Explain selected code or a concept</td></tr>
+          <tr><td><code>/fix</code></td><td>Suggest a fix for a bug or error in selected code</td></tr>
+          <tr><td><code>/test</code> (or <code>/tests</code>)</td><td>Generate unit tests for selected code</td></tr>
+          <tr><td><code>/doc</code></td><td>Generate documentation/comments for selected code</td></tr>
+          <tr><td><code>/optimize</code></td><td>Suggest performance improvements</td></tr>
+        </tbody>
+      </table>
+
+      <h4 style="margin-top:16px">Chat Participants (type <code>@</code> to invoke)</h4>
+      <table>
+        <thead><tr><th>Participant</th><th>Available in</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td><code>@workspace</code></td><td>VS Code</td><td>Query across the entire workspace/project</td></tr>
+          <tr><td><code>@vscode</code></td><td>VS Code</td><td>Ask about VS Code settings, commands, extensions</td></tr>
+          <tr><td><code>@terminal</code></td><td>VS Code</td><td>Get help with terminal commands in the current shell context</td></tr>
+          <tr><td><code>@github</code></td><td>GitHub.com, IDEs</td><td>Access GitHub-specific skills, web search, advanced capabilities</td></tr>
+        </tbody>
+      </table>
+
+      <h4 style="margin-top:16px">Chat Variables (type <code>#</code> to invoke)</h4>
+      <table>
+        <thead><tr><th>Variable</th><th>Available in</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td><code>#file</code></td><td>VS Code, JetBrains</td><td>Reference a specific file as context</td></tr>
+          <tr><td><code>#web</code></td><td>VS Code, GitHub.com</td><td>Invoke a web search to include real-time information</td></tr>
+          <tr><td><code>#solution</code></td><td>Visual Studio</td><td>Reference the entire solution/project as context</td></tr>
+        </tbody>
+      </table>
+
+      <h4 style="margin-top:16px">Image Attachments</h4>
+      <ul>
+        <li>Copilot Chat supports attaching images to prompts: <strong>JPEG, PNG, GIF, WEBP</strong></li>
+        <li>Useful for describing UI mockups, diagrams, or error screenshots</li>
+      </ul>
+
+      <h4 style="margin-top:16px">Model Selection</h4>
+      <ul>
+        <li>Users can switch the AI model Copilot uses for chat responses</li>
+        <li>Available models depend on the plan (see Capabilities &amp; Policies page for plan details)</li>
+        <li>VS Code also supports model selection for inline (ghost text) suggestions</li>
+      </ul>
+    </div>
+
+    <h3 id="plan-mode">Plan Mode</h3>
+    <p>Plan Mode lets Copilot <strong>create a detailed implementation plan before executing any changes</strong>. This is distinct from Agent Mode (autonomous execution).</p>
+
+    <div class="skill-section">
+      <ul>
+        <li>Copilot analyses the task and produces a step-by-step plan</li>
+        <li>The plan shows which files will be created, edited, or deleted</li>
+        <li>You <strong>review and approve</strong> the plan before any code changes are made</li>
+        <li>After approval, you can switch to Agent Mode or Edit Mode to execute</li>
+        <li>Best for complex, multi-file work where you want full visibility upfront</li>
+      </ul>
+    </div>
+
+    <div class="callout warning">
+      <div class="callout-title">&#9888; Exam Tip — Three Modes</div>
+      <p>Know the distinction: <strong>Plan Mode</strong> = plan first, no auto-execution. <strong>Edit Mode</strong> = you pick files, Copilot edits with your approval per step. <strong>Agent Mode</strong> = fully autonomous, Copilot decides which files to touch and can run terminal commands. The exam tests which mode to use for a given scenario.</p>
+    </div>
+
+    <h3 id="smart-actions">Smart Actions</h3>
+    <div class="skill-section">
+      <ul>
+        <li>Appear as a <strong>sparkle ✨ icon</strong> in the editor margin or on selected code</li>
+        <li>Provide context-sensitive Copilot actions without opening the chat panel</li>
+        <li>Examples: fix this, explain selection, generate docs, review selection</li>
+        <li>Available in VS Code and JetBrains IDEs</li>
+      </ul>
+    </div>
+
+    <h3 id="file-exclusions">File &amp; Repository Exclusions in the IDE</h3>
+    <p>Exclusions are configured at the org/repo level in GitHub settings. The IDE enforces them locally.</p>
+
+    <div class="skill-section">
+      <ul>
+        <li>Excluded files: Copilot does <strong>not</strong> offer inline suggestions when editing them</li>
+        <li>Excluded files: their content is <strong>not</strong> sent as context to the model</li>
+        <li>Changes to exclusion rules take <strong>up to 30 minutes</strong> to propagate to IDE clients</li>
+        <li>To force a refresh in VS Code: <em>Command Palette → Developer: Reload Window</em></li>
+        <li>To force a refresh in JetBrains / Visual Studio: close and reopen the IDE</li>
+        <li><strong>Important caveat:</strong> Copilot CLI, Copilot cloud agent, and Agent Mode do <em>not</em> support content exclusion</li>
+      </ul>
+    </div>
+
+    <h3 id="command-palette">Command Palette</h3>
+    <div class="skill-section">
+      <p>The Command Palette gives quick access to Copilot functions without memorising shortcuts.</p>
+      <ol>
+        <li>Open it in VS Code: <kbd>Ctrl+Shift+P</kbd> (Windows/Linux) or <kbd>Cmd+Shift+P</kbd> (Mac)</li>
+        <li>Type <strong>Copilot</strong> to filter available commands</li>
+        <li>Select actions like <strong>Explain This</strong>, <strong>Generate Unit Tests</strong>, or <strong>Developer: Reload Window</strong></li>
+      </ol>
+    </div>
+
+    <h3 id="troubleshooting-ide">Troubleshooting in the IDE</h3>
+    <div class="skill-section">
+      <ul>
+        <li><strong>Log files:</strong> Command Palette → <em>Developer: Open Log File</em> or <em>Developer: Open Extensions Logs Folder</em></li>
+        <li><strong>Electron/process-level logs:</strong> when nothing useful is in the regular logs, use <em>Help → Toggle Developer Tools</em></li>
+        <li><strong>Network/firewall/proxy issues:</strong> open the Command Palette and run <strong>GitHub Copilot: Collect Diagnostics</strong> — this opens a new editor with connection diagnostics you can inspect or share with support</li>
+        <li>Common cause of "no suggestions": content exclusion match, duplication detection, disabled-for-this-language setting, or an authentication/network failure</li>
+      </ul>
+    </div>
+
+    <!-- ── CLI ── -->
+    <h2 id="copilot-cli">GitHub Copilot CLI</h2>
+
+    <h3 id="cli-overview">CLI Overview: Old Extension vs. New Agentic CLI</h3>
+    <p>This is a frequently confused topic — there have been <strong>two different CLI tools</strong> with similar names. Know the distinction.</p>
+
+    <div class="skill-section">
+      <table>
+        <thead><tr><th></th><th>Old <code>gh copilot</code> extension (retired)</th><th>New GitHub Copilot CLI (current)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Status</strong></td><td>Retired</td><td>Current, actively developed</td></tr>
+          <tr><td><strong>Install</strong></td><td><code>gh extension install github/gh-copilot</code></td><td><code>npm install -g @github/copilot</code> (or winget/brew/curl)</td></tr>
+          <tr><td><strong>Invocation</strong></td><td><code>gh copilot suggest</code> / <code>gh copilot explain</code></td><td><code>copilot</code> (bare command)</td></tr>
+          <tr><td><strong>Capability</strong></td><td>Suggests/explains a single shell command</td><td>Full <strong>agentic AI</strong> in the terminal — can write/debug code, run multi-step tasks, interact with GitHub.com</td></tr>
+          <tr><td><strong>Category</strong></td><td>GitHub CLI extension</td><td>Standalone agent tool (same family as Agent Mode / cloud agent)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout danger">
+      <div class="callout-title">&#9888; Exam Tip — Don't Conflate the Two</div>
+      <p>If a question describes a tool that only suggests/explains a single shell command, that's the <strong>retired</strong> extension. If it describes an agent that can write code, debug, create PRs, and run multi-step tasks from the terminal, that's the <strong>current GitHub Copilot CLI</strong>.</p>
+    </div>
+
+    <h3 id="cli-install">Installation &amp; Authentication</h3>
+    <div class="skill-section">
+      <h4>Install Commands by Platform</h4>
+      <table>
+        <thead><tr><th>Platform</th><th>Command</th></tr></thead>
+        <tbody>
+          <tr><td>npm (all platforms)</td><td><code>npm install -g @github/copilot</code> — requires Node.js 22+</td></tr>
+          <tr><td>Windows</td><td><code>winget install GitHub.Copilot</code></td></tr>
+          <tr><td>macOS / Linux</td><td><code>brew install --cask copilot-cli</code></td></tr>
+          <tr><td>macOS / Linux (script)</td><td><code>curl -fsSL https://gh.io/copilot-install | bash</code></td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:10px;font-size:13px;color:var(--text-muted)">Windows additionally requires PowerShell v6+. Requires an active Copilot subscription on all platforms.</p>
+
+      <h4 style="margin-top:16px">Authentication</h4>
+      <ul>
+        <li>On first launch inside a session, run the <code>/login</code> slash command and follow the prompts</li>
+        <li>Alternative: a fine-grained <strong>Personal Access Token</strong> with "Copilot Requests" permission, set via an environment variable</li>
+        <li>Token environment variable precedence order: <code>COPILOT_GITHUB_TOKEN</code> → <code>GH_TOKEN</code> → <code>GITHUB_TOKEN</code></li>
+        <li><strong>Exam trap:</strong> the "Copilot Requests" permission is only available on <strong>user-owned</strong> fine-grained PATs — an organization-owned token cannot be used to authenticate the CLI</li>
+      </ul>
+    </div>
+
+    <h3 id="cli-modes">Interactive vs. Programmatic Mode</h3>
+    <div class="skill-section">
+      <h4>Interactive Mode</h4>
+      <ul>
+        <li>Start a conversation by running <code>copilot</code> in your project directory</li>
+        <li>You're prompted to <strong>trust the folder</strong> before Copilot can act on it</li>
+        <li>Two submodes:
+          <ul>
+            <li><strong>Default ask/execute mode</strong> — converse and approve actions as you go</li>
+            <li><strong>Plan Mode</strong> — toggle with <kbd>Shift+Tab</kbd>; Copilot analyzes the request, asks clarifying questions, and builds a structured plan <em>before</em> writing any code</li>
+          </ul>
+        </li>
+        <li><strong>Auto-compaction:</strong> conversation history is automatically compacted once it reaches 95% of the context window</li>
+      </ul>
+
+      <h4 style="margin-top:16px">Programmatic Mode</h4>
+      <ul>
+        <li>Pass a single prompt directly: <code>copilot -p "your prompt"</code> (or <code>--prompt</code>)</li>
+        <li>Completes the task and exits automatically — no interactive back-and-forth</li>
+        <li>Designed for scripts and CI/automation pipelines</li>
+      </ul>
+    </div>
+
+    <h3 id="cli-security">Security: Trusted Directories &amp; Tool Approval</h3>
+    <div class="skill-section">
+      <ul>
+        <li><strong>Trusted directories:</strong> you explicitly designate which directories Copilot CLI may access and modify</li>
+        <li><strong>Tool approval:</strong> by default, any command that modifies or executes files requires manual approval at each step</li>
+        <li>Approval flags: <code>--allow-tool</code>, <code>--deny-tool</code>, <code>--allow-all-tools</code></li>
+        <li><strong>Caution:</strong> <code>--allow-all-tools</code> grants Copilot "the same access as you do to files on your computer" with no per-action approval — use only in trusted, sandboxed contexts</li>
+        <li>Supports both <strong>local</strong> and <strong>cloud-based sandbox</strong> environments for isolated execution</li>
+        <li>Customizable via custom instructions, MCP servers, custom agents, hooks, skills, and persistent memory</li>
+        <li>Model configuration: choose GitHub-hosted models, or configure custom providers (OpenAI-compatible, Azure, Anthropic, local Ollama) via environment variables</li>
+      </ul>
+    </div>
+
+    <div class="callout warning">
+      <div class="callout-title">&#9888; Exam Tip — Tool Approval Is a Safeguard</div>
+      <p>The manual tool-approval system (and trusted directories) exists specifically so an autonomous terminal agent doesn't make unreviewed changes to your filesystem. Expect a question framing <code>--allow-all-tools</code> as the <em>highest-risk</em> configuration option.</p>
+    </div>
+
+    <h3 id="cli-commands">Legacy Commands: suggest &amp; explain</h3>
+    <p>Retained here because the exam may still reference this pattern as the historical baseline for "Copilot in the command line."</p>
+    <div class="skill-section">
+      <table>
+        <thead><tr><th>Command</th><th>Purpose</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><code>gh copilot suggest</code></td>
+            <td>Generate a shell command from a natural language description</td>
+            <td><code>gh copilot suggest "list all git branches sorted by last commit"</code></td>
+          </tr>
+          <tr>
+            <td><code>gh copilot explain</code></td>
+            <td>Explain what a command does, including flags</td>
+            <td><code>gh copilot explain "git rebase -i HEAD~3"</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4 style="margin-top:16px">After a <code>suggest</code> response, interactive options included:</h4>
+      <ul>
+        <li><strong>Run this command</strong> — execute directly</li>
+        <li><strong>Copy to clipboard</strong> — paste into your shell</li>
+        <li><strong>Revise the command</strong> — refine with follow-up prompt</li>
+        <li><strong>Explain this command</strong> — get an explanation before running</li>
+      </ul>
+
+      <h4 style="margin-top:16px">Suggestion Types (three categories)</h4>
+      <table>
+        <thead><tr><th>Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Generic shell command</strong></td><td>Standard shell commands (ls, grep, find, awk, curl, etc.)</td></tr>
+          <tr><td><strong>gh command</strong></td><td>GitHub CLI-specific commands and workflows</td></tr>
+          <tr><td><strong>git command</strong></td><td>Git version control operations</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-title">&#128161; Study Tip — CLI Commands</div>
+      <p>Know that <code>suggest</code>/<code>explain</code> belong to the <strong>retired</strong> extension, while <code>copilot</code> (interactive or with <code>-p</code>) is the <strong>current</strong> agentic CLI. Know the three legacy suggestion types and the four legacy interactive options — both remain testable as historical/conceptual baseline.</p>
+    </div>
+
+    <!-- Resources -->
+    <h2 id="resources">Study Resources</h2>
+    <ul class="resource-list">
+      <li>
+        <a href="https://docs.github.com/en/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot" target="_blank" rel="noopener">Getting Code Suggestions in Your IDE (GitHub Docs)</a>
+        <span class="resource-desc">Keyboard shortcuts, ghost text behavior, all IDE-specific details.</span>
+      </li>
+      <li>
+        <a href="https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide" target="_blank" rel="noopener">Copilot Chat in your IDE (GitHub Docs)</a>
+        <span class="resource-desc">Slash commands, chat participants, chat variables, keyboard shortcuts.</span>
+      </li>
+      <li>
+        <a href="https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli" target="_blank" rel="noopener">About GitHub Copilot CLI (GitHub Docs)</a>
+        <span class="resource-desc">The current agentic CLI: modes, sandboxes, security model.</span>
+      </li>
+      <li>
+        <a href="https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli" target="_blank" rel="noopener">Installing GitHub Copilot CLI (GitHub Docs)</a>
+        <span class="resource-desc">Exact install commands per platform and authentication steps.</span>
+      </li>
+      <li>
+        <a href="https://learn.microsoft.com/en-us/training/modules/introduction-to-github-copilot/" target="_blank" rel="noopener">Introduction to GitHub Copilot (Microsoft Learn module)</a>
+        <span class="resource-desc">Module covering IDE setup, triggering Copilot, configuration, and troubleshooting. Source for the Command Palette and diagnostics content above.</span>
+      </li>
+      <li>
+        <a href="https://learn.microsoft.com/en-us/training/paths/copilot/" target="_blank" rel="noopener">GitHub Copilot Fundamentals Part 1 (Microsoft Learn path)</a>
+        <span class="resource-desc">Full learning path — core IDE and CLI features.</span>
+      </li>
+      <li>
+        <a href="https://ghcertified.com/en" target="_blank" rel="noopener">GH Certified — Practice Questions</a>
+        <span class="resource-desc">Community practice tests aligned to IDE/CLI skills.</span>
+      </li>
+    </ul>
+
+    <div class="page-nav">
+      <a href="../responsible-ai/">
+        <span class="nav-label">&larr; Previous</span>
+        <span class="nav-title">Responsible AI</span>
+      </a>
+      <a href="../copilot-capabilities/" class="next">
+        <span class="nav-label">Next &rarr;</span>
+        <span class="nav-title">Capabilities &amp; Policies</span>
+      </a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col footer-col-author">
+        <div class="author-card">
+          <img src="../assets/images/marcogrimaldi29.jpg" alt="Marco Grimaldi">
+          <div>
+            <span class="maintainer-badge">Maintainer</span>
+            <div class="ac-name">Marco Grimaldi</div>
+            <div class="ac-role">Cloud Solution Architect</div>
+          </div>
+        </div>
+        <div class="author-links">
+          <a href="https://github.com/marcogrimaldi29" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a>
+          <a href="https://www.linkedin.com/in/marco-grimaldi29/" target="_blank" rel="noopener">in LinkedIn</a>
+          <a href="https://marcogrimaldi29.com/" target="_blank" rel="noopener"><img src="../assets/images/teal-sunset-no-bg.png" alt="" width="14" height="14"> Website</a>
+        </div>
+        <div class="star-cta">&#11088; Found these notes helpful? <strong>Star the repo on GitHub</strong> to support the project and help others find it.</div>
+      </div>
+      <div class="footer-col">
+        <h5>Skills Measured</h5>
+        <a href="../responsible-ai/">Responsible AI</a>
+        <a href="../copilot-features/">Copilot in IDE &amp; CLI</a>
+        <a href="../copilot-capabilities/">Capabilities &amp; Policies</a>
+        <a href="../data-architecture/">Data &amp; Architecture</a>
+        <a href="../prompt-engineering/">Prompt Engineering</a>
+        <a href="../developer-productivity/">Developer Productivity</a>
+        <a href="../privacy-safeguards/">Privacy &amp; Safeguards</a>
+      </div>
+      <div class="footer-col">
+        <h5>Official Resources</h5>
+        <a href="https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-300" target="_blank" rel="noopener">GH-300 Study Guide</a>
+        <a href="https://learn.microsoft.com/en-us/credentials/certifications/github-copilot/" target="_blank" rel="noopener">Certification Page</a>
+        <a href="https://learn.microsoft.com/en-us/training/courses/gh-300t00" target="_blank" rel="noopener">Course GH-300T00-A</a>
+        <a href="https://docs.github.com/en/copilot" target="_blank" rel="noopener">GitHub Copilot Docs</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Marco Grimaldi &middot; For study &amp; learning purposes only. Not affiliated with Microsoft or GitHub.</span>
+      <span>Always verify against the <a href="https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-300" target="_blank" rel="noopener">official study guide</a>.</span>
+    </div>
+  </footer>
+
+  <a href="../" class="home-fab" aria-label="Home" title="Home">&#127968;</a>
+  <button class="back-to-top" aria-label="Back to top">&#128285;</button>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
