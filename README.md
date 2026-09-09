@@ -48,20 +48,6 @@ exam-tips/
 index.html          — home page
 ```
 
-## Running Locally
-
-Pages use clean folder-style URLs (`/responsible-ai/` → `responsible-ai/index.html`), which require a local server to resolve properly (file:// won't work):
-
-```bash
-# Option A — Node (npx, no install required)
-npx http-server . -p 8080
-
-# Option B — Python
-python -m http.server 8080
-
-# Then open http://localhost:8080/
-```
-
 ## Contributing
 
 Corrections, improvements, and pull requests are welcome — open an issue or PR on GitHub.
