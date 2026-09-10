@@ -255,7 +255,9 @@ body {
 .main-content {
   flex: 1;
   margin-left: var(--sidebar-width);
+  margin-top: var(--header-height);
   padding: 40px 48px 80px;
+  min-height: calc(100vh - var(--header-height));
 }
 
 /* ── Typography ── */
