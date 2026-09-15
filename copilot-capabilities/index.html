@@ -150,7 +150,7 @@
 
     <div class="callout warning">
       <div class="callout-title">&#9888; Exam Tip — Mode Comparison</div>
-      <table>
+      <div class="table-wrap"><table>
         <thead><tr><th>Mode</th><th>Who picks files?</th><th>Execution</th><th>Approval needed?</th></tr></thead>
         <tbody>
           <tr><td><strong>Inline Suggestions</strong></td><td>Current file (auto)</td><td>Ghost text, Tab to accept</td><td>Per suggestion</td></tr>
@@ -159,7 +159,7 @@
           <tr><td><strong>Edit Mode</strong></td><td>User selects files</td><td>Step-by-step edits</td><td>Per iteration</td></tr>
           <tr><td><strong>Agent Mode</strong></td><td>Copilot decides</td><td>Fully autonomous</td><td>End review only</td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
 
     <h3 id="sub-agents">Agent Sessions &amp; Sub-Agents</h3>
@@ -244,14 +244,14 @@
 
     <div class="skill-section">
       <h4>Instructions File Locations &amp; Priority</h4>
-      <table>
+      <div class="table-wrap"><table>
         <thead><tr><th>File / Location</th><th>Scope</th><th>Priority</th></tr></thead>
         <tbody>
           <tr><td>Personal instructions (GitHub.com profile settings)</td><td>All repositories for the user</td><td>Highest</td></tr>
           <tr><td><code>.github/copilot-instructions.md</code></td><td>Entire repository</td><td>Middle</td></tr>
           <tr><td>Organization-level instructions</td><td>All repos in the org</td><td>Lowest</td></tr>
         </tbody>
-      </table>
+      </table></div>
       <p style="margin-top:8px;color:var(--text-muted);font-size:13px">When multiple levels apply, <strong>all are provided</strong> to Copilot — not just the highest priority one.</p>
 
       <h4 style="margin-top:16px">Path-Specific Instructions</h4>
@@ -309,7 +309,7 @@ excludeAgent: "code-review"
     <p>Plan differences are heavily tested. Know the key distinguishing features of each tier. Reference: <a href="https://docs.github.com/en/copilot/about-github-copilot/plans-for-github-copilot" target="_blank" rel="noopener">Plans for GitHub Copilot</a>.</p>
 
     <div class="skill-section">
-      <table>
+      <div class="table-wrap"><table>
         <thead>
           <tr>
             <th>Feature</th>
@@ -338,7 +338,7 @@ excludeAgent: "code-review"
           <tr><td>Models: Claude Opus / Gemini 3 Flash</td><td>✗</td><td>✗</td><td>✓</td><td>✓</td><td>✗</td><td>✓</td></tr>
           <tr><td>Student / Educator / OSS access</td><td>–</td><td>Free</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
         </tbody>
-      </table>
+      </table></div>
       <p style="margin-top:10px;font-size:13px;color:var(--text-muted)">GitHub's current documentation refers to the monthly usage allowance as <strong>"GitHub AI Credits"</strong> (the same concept historically called "premium requests"). Exact numeric allowances for Max and for AI-credit-denominated tiers are not published as fixed figures — know it qualitatively as "the highest individual allowance," scaled above Pro+.</p>
     </div>
 
@@ -394,7 +394,7 @@ excludeAgent: "code-review"
     <h3 id="rest-api">REST API Subscription Management</h3>
     <div class="skill-section">
       <p>The <a href="https://docs.github.com/rest/copilot" target="_blank" rel="noopener">GitHub REST API</a> provides dedicated endpoints for Copilot seat and billing administration at the organization level.</p>
-      <table>
+      <div class="table-wrap"><table>
         <thead><tr><th>Method</th><th>Endpoint</th><th>Purpose</th></tr></thead>
         <tbody>
           <tr><td>GET</td><td><code>/orgs/{org}/copilot/billing</code></td><td>Org's Copilot subscription info: seat breakdown and feature policies</td></tr>
@@ -406,7 +406,7 @@ excludeAgent: "code-review"
           <tr><td>GET</td><td><code>/orgs/{org}/members/{username}/copilot</code></td><td>Seat details for one specific org member</td></tr>
           <tr><td>GET</td><td><code>/orgs/{org}/copilot/usage</code></td><td>Daily aggregated usage metrics across the organization</td></tr>
         </tbody>
-      </table>
+      </table></div>
       <p style="margin-top:10px;font-size:13px;color:var(--text-muted)">All endpoints require organization-owner authorization plus the <code>manage_billing:copilot</code> or <code>read:org</code> scope (<code>admin:org</code> for write operations).</p>
       <ul style="margin-top:12px">
         <li>Useful for automating seat onboarding/offboarding scripts at scale (hundreds or thousands of developers)</li>
