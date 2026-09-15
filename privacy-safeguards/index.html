@@ -92,14 +92,14 @@
 
     <div class="skill-section">
       <h4>Configuration Scopes</h4>
-      <table>
+      <div class="table-wrap"><table>
         <thead><tr><th>Level</th><th>Location in GitHub</th><th>Scope of Effect</th></tr></thead>
         <tbody>
           <tr><td>Repository</td><td>Repo Settings → Copilot → Content exclusion</td><td>That repository only</td></tr>
           <tr><td>Organization</td><td>Org Settings → Copilot → Content exclusion</td><td>All users with seats from that org</td></tr>
           <tr><td>Enterprise</td><td>Enterprise AI controls → Copilot → Content exclusion</td><td>All orgs and users in the enterprise</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <h4 style="margin-top:16px">What Gets Excluded</h4>
       <p>When a file matches an exclusion rule, Copilot:</p>
@@ -111,7 +111,7 @@
 
       <h4 style="margin-top:16px">Pattern Syntax — fnmatch (case-insensitive)</h4>
       <p>Exclusion paths use <strong>fnmatch pattern matching notation</strong>:</p>
-      <table>
+      <div class="table-wrap"><table>
         <thead><tr><th>Pattern</th><th>Matches</th></tr></thead>
         <tbody>
           <tr><td><code>*</code></td><td>Any string of characters (within one path segment)</td></tr>
@@ -121,7 +121,7 @@
           <tr><td><code>{server,session}*</code></td><td>Brace expansion: files starting with "server" or "session"</td></tr>
           <tr><td><code>**/directory/**</code></td><td>Recursive match: any file under "directory" at any depth</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <h4 style="margin-top:16px">Example Configuration Syntax</h4>
       <p><em>Repository-level</em> (one path per line):</p>
@@ -208,13 +208,13 @@ https://github.com/org/repo.git:
     <div class="skill-section">
       <h4>"Suggestions Matching Public Code" (Duplication Detection / Code Referencing)</h4>
       <p>The exam guide names this policy <strong>"suggestions matching public code filtering"</strong> — Copilot compares a suggestion plus ~150 characters of surrounding code against public code on GitHub, and can block or allow matches:</p>
-      <table>
+      <div class="table-wrap"><table>
         <thead><tr><th>Setting</th><th>Behaviour</th><th>Use Case</th></tr></thead>
         <tbody>
           <tr><td><strong>Block</strong></td><td>Suppress suggestions that match (or near-match) public code; user sees no suggestion</td><td>Strict IP compliance, open-source projects</td></tr>
           <tr><td><strong>Allow</strong></td><td>Show matching suggestions and let the user view the matched repositories ("code referencing")</td><td>Maximum productivity, less IP-sensitive projects</td></tr>
         </tbody>
-      </table>
+      </table></div>
       <ul style="margin-top:12px">
         <li>Personal accounts configure this individually — <strong>unless</strong> they belong to an org/enterprise, in which case the setting is inherited and the personal option is unavailable</li>
         <li>Org/enterprise admins configure it under <em>Settings &gt; Copilot &gt; Policies</em></li>
@@ -234,7 +234,7 @@ https://github.com/org/repo.git:
 
     <div class="callout info">
       <div class="callout-title">&#9432; Key Distinction: Duplication Detection vs. Content Exclusions</div>
-      <table>
+      <div class="table-wrap"><table>
         <thead><tr><th></th><th>Content Exclusions</th><th>Duplication Detection</th></tr></thead>
         <tbody>
           <tr><td><strong>What it does</strong></td><td>Prevents Copilot from accessing specific files/repos</td><td>Checks if suggestions match publicly available code</td></tr>
@@ -242,11 +242,11 @@ https://github.com/org/repo.git:
           <tr><td><strong>Plan required</strong></td><td>Business / Enterprise</td><td>All plans (configurable)</td></tr>
           <tr><td><strong>Configured by</strong></td><td>Org/Enterprise admin</td><td>Individual (if unaffiliated) or Org/Enterprise admin (policy is inherited if affiliated)</td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
 
     <h3 id="troubleshooting">Troubleshooting Suggestions &amp; Exclusions</h3>
-    <div class="skill-section">
+    <div class="table-wrap">
       <table>
         <thead>
           <tr><th>Symptom</th><th>Likely Cause</th><th>Resolution</th></tr>

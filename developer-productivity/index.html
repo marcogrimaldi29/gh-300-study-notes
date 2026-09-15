@@ -100,7 +100,7 @@
     <h3 id="code-generation">Code Generation &amp; Refactoring</h3>
     <div class="skill-section">
       <h4>Code Generation Use Cases</h4>
-      <table>
+      <div class="table-wrap"><table>
         <thead><tr><th>Use Case</th><th>How to Trigger</th><th>Example</th></tr></thead>
         <tbody>
           <tr><td>Boilerplate / scaffolding</td><td>Comment describing the structure, or Agent Mode</td><td>"// Create a REST endpoint for user registration with validation"</td></tr>
@@ -110,7 +110,7 @@
           <tr><td>Config files (CI/CD, Docker)</td><td>Chat: "generate a GitHub Actions workflow for Node.js CI"</td><td>Agent Mode can scaffold the whole <code>.github/workflows/</code> directory</td></tr>
           <tr><td>Regular expressions</td><td>Comment or chat description</td><td>"// Regex to match ISO 8601 dates"</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <h4 style="margin-top:16px">Refactoring with Copilot</h4>
       <ul>
@@ -198,14 +198,14 @@
       </ul>
 
       <h4 style="margin-top:16px">Unit vs. Integration Tests — What Copilot Generates</h4>
-      <table>
+      <div class="table-wrap"><table>
         <thead><tr><th>Test Type</th><th>What It Tests</th><th>Copilot Assistance</th></tr></thead>
         <tbody>
           <tr><td>Unit test</td><td>A single function or method in isolation</td><td><code>/test</code> on a selected function; generates mocks for dependencies</td></tr>
           <tr><td>Integration test</td><td>Multiple components working together</td><td>Chat: "generate integration tests for the checkout flow"</td></tr>
           <tr><td>Parameterized test</td><td>Same logic with multiple input sets</td><td>Ask for "data-driven tests" or "parameterized tests"</td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
 
     <h3 id="edge-cases">Identify Edge Cases &amp; Write Assertions</h3>
@@ -223,7 +223,7 @@
     <h3 id="security-perf">Suggest Security Improvements &amp; Performance Optimizations</h3>
     <div class="skill-section">
       <h4>Security Analysis with Copilot</h4>
-      <table>
+      <div class="table-wrap"><table>
         <thead><tr><th>Vulnerability Type</th><th>How to Use Copilot</th></tr></thead>
         <tbody>
           <tr><td>SQL injection</td><td>"Review this query for SQL injection risks"</td></tr>
@@ -233,7 +233,7 @@
           <tr><td>Auth/AuthZ</td><td>"Suggest improvements to this authorization check"</td></tr>
           <tr><td>OWASP review</td><td>"Review this endpoint against OWASP Top 10 vulnerabilities"</td></tr>
         </tbody>
-      </table>
+      </table></div>
       <p style="margin-top:10px;font-size:13px;color:var(--text-muted)">Note: Copilot's security suggestions complement but do not replace dedicated SAST tools (GitHub Code Scanning, Dependabot, Secret Scanning).</p>
 
       <h4 style="margin-top:16px">Performance Optimizations</h4>
@@ -256,7 +256,7 @@
     <h2 id="sdlc">AI Across the Software Development Lifecycle</h2>
     <p>The <a href="https://learn.microsoft.com/en-us/training/modules/developer-use-cases-for-ai-with-github-copilot/4-ai-software-development-lifecycle" target="_blank" rel="noopener">Developer Use Cases for AI</a> module maps Copilot's impact across every SDLC phase — know which activities belong to which phase.</p>
 
-    <div class="skill-section">
+    <div class="table-wrap">
       <table>
         <thead><tr><th>SDLC Phase</th><th>How Copilot Helps</th></tr></thead>
         <tbody>
@@ -316,7 +316,7 @@
     <h3 id="ai-limitations">Limitations of AI-Assisted Coding</h3>
     <p>The <a href="https://learn.microsoft.com/en-us/training/modules/developer-use-cases-for-ai-with-github-copilot/5-understand-limitations-measure-impact" target="_blank" rel="noopener">"Understand limitations and measure impact"</a> unit groups limitations into four categories — this is a clean, testable taxonomy.</p>
 
-    <div class="skill-section">
+    <div class="table-wrap">
       <table>
         <thead><tr><th>Category</th><th>Specific Limitations</th></tr></thead>
         <tbody>
@@ -345,14 +345,14 @@
 
     <div class="skill-section">
       <h4>REST API for Copilot Usage Metrics</h4>
-      <table>
+      <div class="table-wrap"><table>
         <thead><tr><th>Endpoint</th><th>Scope</th></tr></thead>
         <tbody>
           <tr><td><code>GET /enterprises/{enterprise}/copilot/usage</code></td><td>Daily aggregated usage across an entire enterprise</td></tr>
           <tr><td><code>GET /enterprises/{enterprise}/team/{team_slug}/copilot/usage</code></td><td>Daily aggregated usage for one enterprise team</td></tr>
           <tr><td><code>GET /orgs/{org}/copilot/usage</code></td><td>Daily aggregated usage across an organization</td></tr>
         </tbody>
-      </table>
+      </table></div>
       <p style="margin-top:10px;font-size:13px;color:var(--text-muted)">Each response includes suggestions, acceptances, active users, and breakdowns by editor and language.</p>
 
       <h4 style="margin-top:16px">A 4-Stage Measurement Framework</h4>

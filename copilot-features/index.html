@@ -100,7 +100,7 @@
     <h3 id="supported-ides">Supported IDEs</h3>
     <p>GitHub Copilot works across a wide range of editors. Feature availability may vary — VS Code typically receives new features first.</p>
 
-    <div class="skill-section">
+    <div class="table-wrap">
       <table>
         <thead><tr><th>IDE / Editor</th><th>Notes</th></tr></thead>
         <tbody>
@@ -155,7 +155,7 @@
       </ul>
 
       <h4 style="margin-top:16px">Keyboard Shortcuts Reference</h4>
-      <table>
+      <div class="table-wrap"><table>
         <thead><tr><th>Action</th><th>macOS</th><th>Windows / Linux</th></tr></thead>
         <tbody>
           <tr><td>Accept full suggestion</td><td><kbd>Tab</kbd></td><td><kbd>Tab</kbd></td></tr>
@@ -167,7 +167,7 @@
           <tr><td>Open inline chat</td><td><kbd>Command+I</kbd> (VS Code)</td><td><kbd>Ctrl+I</kbd> (VS Code) / <kbd>Ctrl+Shift+I</kbd> (JetBrains)</td></tr>
           <tr><td>Open quick chat</td><td><kbd>Shift+Option+Command+L</kbd></td><td><kbd>Ctrl+Shift+Alt+L</kbd></td></tr>
         </tbody>
-      </table>
+      </table></div>
       <p style="margin-top:10px;font-size:13px;color:var(--text-muted)">Note: Xcode handles full suggestion acceptance via modifier keys rather than Tab. Line-by-line acceptance requires custom shortcut configuration in most editors.</p>
     </div>
 
@@ -181,7 +181,7 @@
 
     <div class="skill-section">
       <h4>Slash Commands (type <code>/</code> to see full list)</h4>
-      <table>
+      <div class="table-wrap"><table>
         <thead><tr><th>Command</th><th>Purpose</th></tr></thead>
         <tbody>
           <tr><td><code>/explain</code></td><td>Explain selected code or a concept</td></tr>
@@ -190,10 +190,10 @@
           <tr><td><code>/doc</code></td><td>Generate documentation/comments for selected code</td></tr>
           <tr><td><code>/optimize</code></td><td>Suggest performance improvements</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <h4 style="margin-top:16px">Chat Participants (type <code>@</code> to invoke)</h4>
-      <table>
+      <div class="table-wrap"><table>
         <thead><tr><th>Participant</th><th>Available in</th><th>Purpose</th></tr></thead>
         <tbody>
           <tr><td><code>@workspace</code></td><td>VS Code</td><td>Query across the entire workspace/project</td></tr>
@@ -201,17 +201,17 @@
           <tr><td><code>@terminal</code></td><td>VS Code</td><td>Get help with terminal commands in the current shell context</td></tr>
           <tr><td><code>@github</code></td><td>GitHub.com, IDEs</td><td>Access GitHub-specific skills, web search, advanced capabilities</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <h4 style="margin-top:16px">Chat Variables (type <code>#</code> to invoke)</h4>
-      <table>
+      <div class="table-wrap"><table>
         <thead><tr><th>Variable</th><th>Available in</th><th>Purpose</th></tr></thead>
         <tbody>
           <tr><td><code>#file</code></td><td>VS Code, JetBrains</td><td>Reference a specific file as context</td></tr>
           <tr><td><code>#web</code></td><td>VS Code, GitHub.com</td><td>Invoke a web search to include real-time information</td></tr>
           <tr><td><code>#solution</code></td><td>Visual Studio</td><td>Reference the entire solution/project as context</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <h4 style="margin-top:16px">Image Attachments</h4>
       <ul>
@@ -295,7 +295,7 @@
     <h3 id="cli-overview">CLI Overview: Old Extension vs. New Agentic CLI</h3>
     <p>This is a frequently confused topic — there have been <strong>two different CLI tools</strong> with similar names. Know the distinction.</p>
 
-    <div class="skill-section">
+    <div class="table-wrap">
       <table>
         <thead><tr><th></th><th>Old <code>gh copilot</code> extension (retired)</th><th>New GitHub Copilot CLI (current)</th></tr></thead>
         <tbody>
@@ -316,7 +316,7 @@
     <h3 id="cli-install">Installation &amp; Authentication</h3>
     <div class="skill-section">
       <h4>Install Commands by Platform</h4>
-      <table>
+      <div class="table-wrap"><table>
         <thead><tr><th>Platform</th><th>Command</th></tr></thead>
         <tbody>
           <tr><td>npm (all platforms)</td><td><code>npm install -g @github/copilot</code> — requires Node.js 22+</td></tr>
@@ -324,7 +324,7 @@
           <tr><td>macOS / Linux</td><td><code>brew install --cask copilot-cli</code></td></tr>
           <tr><td>macOS / Linux (script)</td><td><code>curl -fsSL https://gh.io/copilot-install | bash</code></td></tr>
         </tbody>
-      </table>
+      </table></div>
       <p style="margin-top:10px;font-size:13px;color:var(--text-muted)">Windows additionally requires PowerShell v6+. Requires an active Copilot subscription on all platforms.</p>
 
       <h4 style="margin-top:16px">Authentication</h4>
@@ -379,7 +379,7 @@
 
     <h3 id="cli-commands">Legacy Commands: suggest &amp; explain</h3>
     <p>Retained here because the exam may still reference this pattern as the historical baseline for "Copilot in the command line."</p>
-    <div class="skill-section">
+    <div class="table-wrap">
       <table>
         <thead><tr><th>Command</th><th>Purpose</th><th>Example</th></tr></thead>
         <tbody>
@@ -405,14 +405,14 @@
       </ul>
 
       <h4 style="margin-top:16px">Suggestion Types (three categories)</h4>
-      <table>
+      <div class="table-wrap"><table>
         <thead><tr><th>Type</th><th>Description</th></tr></thead>
         <tbody>
           <tr><td><strong>Generic shell command</strong></td><td>Standard shell commands (ls, grep, find, awk, curl, etc.)</td></tr>
           <tr><td><strong>gh command</strong></td><td>GitHub CLI-specific commands and workflows</td></tr>
           <tr><td><strong>git command</strong></td><td>Git version control operations</td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
 
     <div class="callout tip">
