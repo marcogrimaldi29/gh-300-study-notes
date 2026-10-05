@@ -30,7 +30,7 @@ jobs:
           UMAMI_WEBSITE_ID: ${{ secrets.UMAMI_WEBSITE_ID }}
         run: |
           if [ -n "$UMAMI_WEBSITE_ID" ]; then
-            # Replace the placeholder in every HTML file (and main.js if you move it there)
+            # Replace the placeholder wherever it appears (today only loadUmami() in assets/js/main.js)
             grep -rl '__UMAMI_WEBSITE_ID__' --include='*.html' --include='*.js' . | while read -r f; do
               sed -i "s/__UMAMI_WEBSITE_ID__/${UMAMI_WEBSITE_ID}/g" "$f"
             done
