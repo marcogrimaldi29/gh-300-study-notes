@@ -24,17 +24,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if (backToTop || homeFab) {
-    window.addEventListener('scroll', () => {
+  const floatButtons = [homeFab, backToTop].filter(Boolean);
+  if (floatButtons.length) {
+    let shown = null;
+    const update = () => {
       const show = window.scrollY > 400;
-      if (backToTop) backToTop.classList.toggle('visible', show);
-      if (homeFab) homeFab.classList.toggle('visible', show);
-    });
+      if (show === shown) return;
+      shown = show;
+      floatButtons.forEach(btn => {
+        btn.classList.toggle('visible', show);
+        // Hidden buttons stay out of the tab order.
+        if (show) btn.removeAttribute('tabindex');
+        else btn.setAttribute('tabindex', '-1');
+      });
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    update();
   }
 
   if (backToTop) {
     backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      // Return keyboard focus to the top; preventScroll stops it cancelling the smooth scroll.
+      document.querySelector('.header-logo')?.focus({ preventScroll: true });
     });
   }
 
