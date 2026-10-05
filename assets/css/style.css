@@ -14,6 +14,7 @@
   --accent-orange: #d29922;
   --accent-red: #f85149;
   --accent-cyan: #39d2c0;
+  --accent-emphasis: #1f6feb;
   --link-color: #58a6ff;
   --sidebar-width: 280px;
   --header-height: 60px;
@@ -94,13 +95,15 @@ body {
   gap: 16px;
 }
 
+/* The wordmark is the only part of the bar allowed to shrink, so on a screen
+   too narrow for everything it truncates instead of pushing the controls off. */
 .header-logo {
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
   text-decoration: none;
   color: var(--text-primary);
-  flex-shrink: 0;
 }
 
 .header-logo svg { width: 32px; height: 32px; fill: var(--text-primary); }
@@ -108,12 +111,16 @@ body {
 .header-logo img {
   width: 32px;
   height: 32px;
+  flex-shrink: 0;
   border-radius: 6px;
   display: block;
   object-fit: contain;
 }
 
 .header-logo .logo-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 16px;
   font-weight: 600;
   white-space: nowrap;
@@ -150,7 +157,8 @@ body {
 .header-nav {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
+  flex-shrink: 0;
   margin-left: auto;
 }
 
@@ -168,15 +176,59 @@ body {
   background: var(--bg-tertiary);
 }
 
-.menu-toggle {
-  display: none;
-  background: none;
+/* Every control in the bar shares GitHub's 32px control height. */
+.header-nav .star-btn { height: 32px; padding: 0 12px; }
+
+/* ── Header search: GitHub's "Type / to search" box, an icon button on small screens ── */
+.search-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  width: 240px;
+  height: 32px;
+  padding: 0 10px;
   border: 1px solid var(--border-default);
   border-radius: var(--radius);
-  color: var(--text-primary);
-  padding: 6px 10px;
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 14px;
+  text-align: left;
   cursor: pointer;
-  font-size: 18px;
+  transition: border-color .15s, background .15s, color .15s;
+}
+
+.search-trigger:hover { border-color: var(--text-secondary); color: var(--text-primary); }
+
+.search-trigger svg { width: 16px; height: 16px; flex-shrink: 0; fill: currentColor; }
+
+.search-trigger-text { white-space: nowrap; }
+
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+}
+
+.menu-toggle:hover { background: var(--bg-tertiary); border-color: var(--text-secondary); }
+
+.menu-toggle svg { width: 16px; height: 16px; fill: currentColor; }
+
+.search-trigger:focus-visible,
+.menu-toggle:focus-visible {
+  outline: 2px solid var(--accent-emphasis);
+  outline-offset: -2px;
 }
 
 /* ── Layout ── */
@@ -910,9 +962,15 @@ tr:hover td { background: rgba(88,166,255,.03); }
 
   .footer-bottom { flex-direction: column; }
 
-  .menu-toggle { display: block; order: 2; }
+  .menu-toggle { display: inline-flex; order: 2; }
 
   .header-nav { order: 1; }
+
+  .search-trigger { width: 32px; padding: 0; justify-content: center; background: var(--bg-secondary); }
+
+  .search-trigger:hover { background: var(--bg-tertiary); }
+
+  .search-trigger-text { display: none; }
 
   .hero h1 { font-size: 28px; }
 
@@ -930,6 +988,38 @@ tr:hover td { background: rgba(88,166,255,.03); }
 
 @media (max-width: 480px) {
   .star-btn .star-label { display: none; }
+
+  .site-header { padding: 0 12px; gap: 8px; }
+
+  .header-nav { gap: 6px; }
+
+  .header-nav .star-btn { padding: 0 10px; gap: 6px; }
+}
+
+/* Smallest phones, down to 320px: the controls give up a few pixels so the
+   whole wordmark still fits. */
+@media (max-width: 400px) {
+  .site-header { padding: 0 8px; gap: 6px; }
+
+  .header-logo { gap: 8px; }
+
+  .header-logo img { width: 28px; height: 28px; }
+
+  .header-logo .logo-text { font-size: 15px; }
+
+  .header-nav { gap: 4px; }
+
+  .search-trigger, .menu-toggle { width: 30px; height: 30px; }
+
+  .header-nav .star-btn { height: 30px; padding: 0 7px; gap: 4px; }
+}
+
+@media (max-width: 340px) {
+  .site-header { padding: 0 6px; }
+
+  .header-logo { gap: 6px; }
+
+  .header-logo img { width: 24px; height: 24px; }
 }
 
 /* ── Sidebar overlay on mobile ── */
@@ -1002,77 +1092,301 @@ tr:hover td { background: rgba(88,166,255,.03); }
   font-size: 18px;
 }
 
-/* ── Back to top ── */
-.back-to-top {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  font-size: 19px;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 3px 10px rgba(88,166,255,.35);
-  z-index: 90;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(12px) scale(.9);
-  transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .15s, opacity .25s ease;
-}
-
-.back-to-top.visible {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0) scale(1);
-}
-
-.back-to-top:hover {
-  transform: translateY(-3px) scale(1);
-  box-shadow: 0 6px 16px rgba(188,140,255,.45);
-}
-
-/* ── Floating Home button (sits above Back to top) ── */
+/* ── Floating buttons: Home and Back to top ──
+   Modelled on GitHub Docs' own "Scroll to top" control: a 40px circular Primer
+   button carrying an Octicon, with a Primer tooltip. */
+.back-to-top,
 .home-fab {
   position: fixed;
-  bottom: 76px;
   right: 24px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-default);
-  color: var(--text-primary);
+  z-index: 90;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-  line-height: 1;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--border-default);
+  border-radius: 50%;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  box-shadow: 0 3px 6px rgba(1,4,9,.5);
+  cursor: pointer;
   text-decoration: none;
-  box-shadow: var(--shadow);
-  z-index: 90;
   opacity: 0;
   pointer-events: none;
   transform: translateY(12px) scale(.9);
-  transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .15s, border-color .15s, background .15s, opacity .25s ease;
+  transition: transform .25s cubic-bezier(.34,1.56,.64,1), opacity .25s ease,
+              background .15s, border-color .15s, color .15s, box-shadow .15s;
 }
 
+.back-to-top { bottom: 24px; }
+
+.home-fab { bottom: 76px; }
+
+.back-to-top svg,
+.home-fab svg { width: 16px; height: 16px; fill: currentColor; }
+
+.back-to-top.visible,
 .home-fab.visible {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0) scale(1);
 }
 
-.home-fab:hover {
-  transform: translateY(-3px) scale(1);
-  border-color: var(--accent-blue);
-  background: var(--bg-tertiary);
-  box-shadow: 0 6px 16px rgba(88,166,255,.35);
+/* Hover only where there is a real pointer, so a tap doesn't leave it stuck on. */
+@media (hover: hover) {
+  .back-to-top.visible:hover,
+  .home-fab.visible:hover {
+    transform: translateY(-3px) scale(1);
+    background: var(--border-default);
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+    box-shadow: 0 8px 24px rgba(1,4,9,.75);
+    text-decoration: none;
+  }
+}
+
+.back-to-top.visible:active,
+.home-fab.visible:active { transform: translateY(0) scale(.96); }
+
+.back-to-top:focus-visible,
+.home-fab:focus-visible {
+  outline: 2px solid var(--accent-emphasis);
+  outline-offset: -2px;
+}
+
+/* GitHub's Primer tooltip, shown to the left; the accessible name is its text. */
+.tooltipped-w::before,
+.tooltipped-w::after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .1s ease-in;
+}
+
+.tooltipped-w::after {
+  content: attr(aria-label);
+  right: 100%;
+  margin-right: 10px;
+  padding: 4px 8px;
+  font: 400 12px/18px var(--font-sans);
+  color: #fff;
+  white-space: nowrap;
+  background: #3d444d;
+  border-radius: var(--radius);
+}
+
+.tooltipped-w::before {
+  content: "";
+  right: 100%;
+  margin-right: -2px;
+  border: 6px solid transparent;
+  border-left-color: #3d444d;
+}
+
+@media (hover: hover) {
+  .tooltipped-w:hover::before,
+  .tooltipped-w:hover::after { opacity: 1; }
+}
+
+.tooltipped-w:focus-visible::before,
+.tooltipped-w:focus-visible::after { opacity: 1; }
+
+@media (max-width: 480px) {
+  .back-to-top, .home-fab { right: 16px; }
+
+  .back-to-top { bottom: 16px; }
+
+  .home-fab { bottom: 68px; }
+}
+
+/* ── Search (command palette) ── */
+.search-modal {
+  width: min(640px, calc(100vw - 32px));
+  max-width: none;
+  max-height: min(72vh, 640px);
+  margin: clamp(40px, 10vh, 110px) auto auto;
+  padding: 0;
+  border: 1px solid var(--border-default);
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  box-shadow: 0 8px 24px rgba(1,4,9,.75);
+  overflow: hidden;
+}
+
+.search-modal[open] {
+  display: flex;
+  flex-direction: column;
+  animation: sm-in .15s cubic-bezier(.2,.7,.2,1);
+}
+
+.search-modal::backdrop { background: rgba(1,4,9,.6); }
+
+@keyframes sm-in {
+  from { opacity: 0; transform: translateY(-6px) scale(.99); }
+  to { opacity: 1; transform: none; }
+}
+
+.sm-inner { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
+
+.sm-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 10px 10px 16px;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.sm-field > svg { width: 16px; height: 16px; flex-shrink: 0; fill: var(--text-muted); }
+
+/* 16px keeps iOS from zooming the page when the field takes focus. */
+.sm-input {
+  flex: 1;
+  min-width: 0;
+  height: 32px;
+  border: 0;
+  outline: none;
+  background: none;
+  font: inherit;
+  font-size: 16px;
+  color: var(--text-primary);
+}
+
+.sm-input::placeholder { color: var(--text-muted); }
+
+.sm-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  background: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+
+.sm-close:hover { background: var(--bg-tertiary); color: var(--text-primary); }
+
+.sm-close svg { width: 16px; height: 16px; fill: currentColor; }
+
+.sm-close:focus-visible { outline: 2px solid var(--accent-emphasis); outline-offset: -2px; }
+
+.sm-status {
+  margin: 0;
+  padding: 10px 16px 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.sm-results {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin: 0;
+  padding: 4px 8px 8px;
+  list-style: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-default) transparent;
+}
+
+.sm-results:empty { display: none; }
+
+.sm-hit { margin: 0; }
+
+.sm-hit + .sm-hit { margin-top: 2px; }
+
+.sm-hit a {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: var(--radius);
+  color: var(--text-primary);
   text-decoration: none;
+}
+
+.sm-hit a:hover { background: var(--bg-tertiary); text-decoration: none; }
+
+.sm-hit.active a {
+  background: rgba(56,139,253,.15);
+  box-shadow: inset 2px 0 0 var(--accent-blue);
+}
+
+.sm-hit svg { width: 16px; height: 16px; margin-top: 2px; flex-shrink: 0; fill: var(--text-muted); }
+
+.sm-hit.active svg { fill: var(--accent-blue); }
+
+.sm-body { flex: 1; min-width: 0; }
+
+.sm-crumb { display: block; font-size: 12px; color: var(--text-muted); }
+
+.sm-title { display: block; font-size: 14px; font-weight: 600; line-height: 1.4; }
+
+.sm-snippet {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-top: 2px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* GitHub's code-search keyword highlight. */
+.search-modal mark {
+  padding: 0 1px;
+  border-radius: 2px;
+  background: rgba(210,153,34,.4);
+  color: inherit;
+}
+
+.sm-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 8px 16px;
+  border-top: 1px solid var(--border-default);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.search-trigger kbd,
+.search-modal kbd {
+  display: inline-block;
+  min-width: 18px;
+  padding: 0 5px;
+  font: 11px/16px var(--font-mono);
+  color: var(--text-secondary);
+  text-align: center;
+  vertical-align: middle;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
+  box-shadow: inset 0 -1px 0 var(--border-default);
+}
+
+@media (max-width: 560px) {
+  .search-modal { margin-top: 12px; max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px); }
+
+  .sm-foot { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .back-to-top, .home-fab { transform: none !important; transition: opacity .15s linear; }
+
+  .search-modal[open] { animation: none; }
 }

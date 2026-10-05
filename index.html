@@ -27,9 +27,10 @@
       <span class="logo-text">GH-300 <span class="muted">Study Notes</span></span>
     </a>
 
-    <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+    <button type="button" class="menu-toggle" aria-label="Toggle menu"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M1 2.75A.75.75 0 0 1 1.75 2h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 2.75Zm0 5A.75.75 0 0 1 1.75 7h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 7.75ZM1.75 12h12.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Z"/></svg></button>
 
     <nav class="header-nav">
+      <button type="button" class="search-trigger" aria-label="Search the study notes" aria-keyshortcuts="Control+K Meta+K /"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M10.68 11.74a6 6 0 0 1-7.922-8.982 6 6 0 0 1 8.982 7.922l3.04 3.04a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215ZM11.5 7a4.499 4.499 0 1 0-8.997 0A4.499 4.499 0 0 0 11.5 7Z"/></svg><span class="search-trigger-text">Type <kbd>/</kbd> to search</span></button>
       <a class="star-btn" href="https://github.com/marcogrimaldi29/gh-300-study-notes" target="_blank" rel="noopener" title="Star this repo on GitHub">
         <span class="star-emoji">&#11088;</span>
         <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
@@ -123,7 +124,7 @@
     </div>
 
     <!-- Exam at a Glance -->
-    <h2>Exam at a Glance</h2>
+    <h2 id="exam-at-a-glance">Exam at a Glance</h2>
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-value">GH-300</div>
@@ -149,7 +150,7 @@
     </div>
 
     <!-- Skills Measured -->
-    <h2>Skills Measured</h2>
+    <h2 id="skills-measured">Skills Measured</h2>
     <p>The exam covers six skill areas. Note: the official guide treats <strong>"Use GitHub Copilot features"</strong> (IDE, CLI, capabilities, and org-wide management) as a <strong>single 25&ndash;30% domain</strong> &mdash; it's split into the two cards below purely for readability, not because it's two separate domains. Click a card to view the detailed study notes for each area.</p>
 
     <div class="card-grid">
@@ -226,7 +227,7 @@
     <p style="font-size:13px;color:var(--text-muted);margin-top:8px">* "Use Copilot in IDE &amp; CLI" and "Capabilities &amp; Policies" are one combined 25&ndash;30% exam domain, not 50&ndash;60% &mdash; they're split into two pages here for readability only.</p>
 
     <!-- Learning Paths -->
-    <h2>Official Learning Paths</h2>
+    <h2 id="learning-paths">Official Learning Paths</h2>
     <ul class="resource-list">
       <li>
         <a href="https://learn.microsoft.com/en-us/training/paths/copilot/" target="_blank" rel="noopener">GitHub Copilot Fundamentals &mdash; Part 1</a>
@@ -255,7 +256,7 @@
     </ul>
 
     <!-- Community Resources -->
-    <h2>Community &amp; Open Source Resources</h2>
+    <h2 id="community-resources">Community &amp; Open Source Resources</h2>
     <ul class="resource-list">
       <li>
         <a href="https://ghcertified.com/en" target="_blank" rel="noopener">GH Certified</a>
@@ -280,7 +281,7 @@
     </ul>
 
     <!-- Quick Links -->
-    <h2>Quick Links</h2>
+    <h2 id="quick-links">Quick Links</h2>
     <div class="table-wrap"><table>
       <thead>
         <tr><th>Resource</th><th>Description</th></tr>
@@ -368,8 +369,9 @@
     </div>
   </footer>
 
-  <button class="back-to-top" aria-label="Back to top">&#128285;</button>
+  <button type="button" class="back-to-top tooltipped-w" aria-label="Back to top" tabindex="-1"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3.22 10.53a.749.749 0 0 1 0-1.06l4.25-4.25a.749.749 0 0 1 1.06 0l4.25 4.25a.749.749 0 1 1-1.06 1.06L8 6.811 4.28 10.53a.749.749 0 0 1-1.06 0Z"/></svg></button>
 
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/search.js"></script>
 </body>
 </html>
