@@ -48,7 +48,7 @@ pie title Exam Domain Weights of the GH-300 (official ranges)
 
 ## 🐞 Spotted a Mistake?
 
-GitHub Copilot evolves fast, so if something here is wrong or out of date, please [report an issue](https://github.com/marcogrimaldi29/gh-300-study-notes/issues).
+GitHub Copilot evolves fast, so if something here is wrong or out of date, please [report an issue](https://github.com/marcogrimaldi29/gh-300-study-notes/issues/new?template=ISSUE_TEMPLATE.md).
 
 ---
 
